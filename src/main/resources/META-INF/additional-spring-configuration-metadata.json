@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "implementation('org.apache.tomcat.embed",
+      "type": "java.lang.String",
+      "description": "Description for implementation('org.apache.tomcat.embed."
+  }
+] }
