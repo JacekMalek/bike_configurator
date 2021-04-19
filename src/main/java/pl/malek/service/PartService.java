@@ -1,15 +1,16 @@
 package pl.malek.service;
 
-
-import org.springframework.stereotype.Repository;
-import pl.malek.part.Part;
+import org.springframework.stereotype.Service;
+import pl.malek.dto.PartDto;
+import pl.malek.model.Part;
 import pl.malek.repository.PartRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Repository
-public class PartService implements MethodInterface<Part> {
+@Service
+public class PartService implements MethodInterface<PartDto> {
     private final PartRepository partRepository;
 
     public PartService(PartRepository partRepository) {
@@ -17,18 +18,28 @@ public class PartService implements MethodInterface<Part> {
     }
 
     @Override
-    public List<Part> getAll() {
-        return partRepository.findAll();
+    public List<PartDto> getAll() {
+       return partRepository.findAll()
+                .stream()
+                .map(part -> new PartDto(part.getName(), part.getWeight(),
+                        part.getCategory(), part.getProducer(), part.getPrice()))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public void add(Part part) {
+    public void add(PartDto partDto) {
+        Part part = new Part();
+        part.setName(partDto.getName());
+        part.setWeight(partDto.getWeight());
+        part.setCategory(partDto.getCategory());
+        part.setProducer(partDto.getProducer());
+        part.setPrice(partDto.getPrice());
         partRepository.save(part);
     }
 
     @Override
-    public Optional<Part> get(Long id) {
-        return partRepository.findById(id);
+    public Optional<PartDto> get(Long id) {
+        return null;
     }
 
     @Override
@@ -37,7 +48,13 @@ public class PartService implements MethodInterface<Part> {
     }
 
     @Override
-    public void update(Part part) {
+    public void update(PartDto partDto) {
+        Part part = new Part();
+        part.setId(partDto.getId());
+        part.setWeight(partDto.getWeight());
+        part.setCategory(partDto.getCategory());
+        part.setProducer(partDto.getProducer());
+        part.setPrice(partDto.getPrice());
         partRepository.save(part);
     }
 }

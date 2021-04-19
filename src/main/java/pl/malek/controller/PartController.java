@@ -4,24 +4,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.malek.part.Part;
+import pl.malek.dto.CategoryDto;
+import pl.malek.dto.PartDto;
+import pl.malek.model.Part;
+import pl.malek.service.CategoryService;
 import pl.malek.service.PartService;
 
 import javax.validation.Valid;
+import java.util.Collection;
 import java.util.List;
 
 @Controller
 @RequestMapping("/part")
 public class PartController {
     private final PartService partService;
+    private final CategoryService categoryService;
 
-    public PartController(PartService partService) {
+    public PartController(PartService partService, CategoryService categoryService) {
         this.partService = partService;
+        this.categoryService = categoryService;
     }
 
     @GetMapping("/all")
     public String showParts(Model model) {
-        List<Part> parts = partService.getAll();
+        List<PartDto> parts = partService.getAll();
         model.addAttribute("parts", parts);
         return "/all_parts";
     }
@@ -33,11 +39,11 @@ public class PartController {
     }
 
     @PostMapping("/add")
-    public String postAddPart(@Valid Part part, BindingResult bindingResult) {
+    public String postAddPart(@Valid PartDto partDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new_part";
         }
-        partService.add(part);
+        partService.add(partDto);
         return "redirect:/part/all";
     }
 
@@ -48,26 +54,17 @@ public class PartController {
     }
 
     @PostMapping("/edit")
-    public String postEditPart(@Valid Part part, BindingResult bindingResult){
+    public String postEditPart(@Valid PartDto partDto, BindingResult bindingResult){
         if(bindingResult.hasErrors()){
             return "part";
         }
-        partService.update(part);
+        partService.update(partDto);
         return "redirect:/part/edit";
     }
 
-//
-//    @ModelAttribute("parts")
-//    public Collection<String> categories() {
-//        return partService.getParts();
-//    }
 
-
-
-
-//    @ModelAttribute("categories")
-//    public Collection<String> categories() {
-//        return Set.of("Rama", "Korba", "Hamulce", "Pedały");
-//    }
-
+    @ModelAttribute("categories")
+    public Collection<CategoryDto> categories() {
+        return categoryService.getAll();
+    }
 }

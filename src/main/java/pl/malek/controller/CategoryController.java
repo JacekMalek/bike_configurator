@@ -52,7 +52,7 @@ public class CategoryController {
     }
 
 
-    @PostMapping("/edit")
+    @PutMapping("/edit")
     public String postEditCategory(@Valid CategoryDto categoryDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit_category";

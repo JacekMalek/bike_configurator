@@ -1,6 +1,4 @@
-package pl.malek.part;
-
-import pl.malek.category.Category;
+package pl.malek.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -43,7 +41,6 @@ public class Part {
                 ", price=" + price +
                 '}';
     }
-
 
 
     public Long getId() {

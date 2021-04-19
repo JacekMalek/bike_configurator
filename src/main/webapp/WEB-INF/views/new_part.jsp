@@ -32,10 +32,15 @@
     </p>
     <p>Kategoria: <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/><br>
         <form:errors path="category" cssClass="error"/>
+
+<%--    <p>Kategoria:     <form:select path="category.id">--%>
+<%--            <form:option value="-" label="Proszę wybrać" /> --%>
+<%--            <form:options items="${categories}" itemLabel="name" itemValue="id"/>--%>
+<%--        </form:select>--%>
+
     </p>
     <p>Producent: <form:input path="producer"/>
         <form:errors path="producer" cssClass="error"/>
-
     </p>
 
     <p>

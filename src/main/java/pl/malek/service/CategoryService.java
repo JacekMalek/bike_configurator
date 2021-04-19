@@ -1,7 +1,7 @@
 package pl.malek.service;
 
 import org.springframework.stereotype.Service;
-import pl.malek.category.Category;
+import pl.malek.model.Category;
 import pl.malek.dto.CategoryDto;
 import pl.malek.repository.CategoryRepository;
 
