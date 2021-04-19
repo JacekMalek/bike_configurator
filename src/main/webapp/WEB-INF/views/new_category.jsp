@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Nowa część</title>
+    <title>Nowa kategoria</title>
     <link href="/style/style.css" rel="stylesheet"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,30 +17,19 @@
 </head>
 
 <body>
-<h3>Nowa część:</h3>
+<h3>Nowa kategoria:</h3>
 
-<form:form method="post" modelAttribute="part">
+<form:form method="post" modelAttribute="category">
 
-    <p>Nazwa: <form:input path="name"/>
+    <p>
+        Nowa kategoria: <form:input path="name"/>
         <form:errors path="name" cssClass="error"/>
     </p>
-    <p>Cena: <form:input path="price"/>
-        <form:errors path="price" cssClass="error"/>
-    </p>
-    <p>Waga: <form:input path="weight"/>
-        <form:errors path="weight" cssClass="error"/>
-    </p>
-    <p>Kategoria: <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/><br>
-        <form:errors path="category" cssClass="error"/>
-    </p>
-    <p>Producent: <form:input path="producer"/>
-        <form:errors path="producer" cssClass="error"/>
 
-    </p>
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/part/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/category/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
 
 

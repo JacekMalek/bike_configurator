@@ -2,29 +2,28 @@ package pl.malek.service;
 
 
 import org.springframework.stereotype.Repository;
-import pl.malek.model.Part;
+import pl.malek.part.Part;
 import pl.malek.repository.PartRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class PartService implements PartServiceInterface{
+public class PartService implements MethodInterface<Part> {
     private final PartRepository partRepository;
 
     public PartService(PartRepository partRepository) {
         this.partRepository = partRepository;
     }
 
-
     @Override
-    public List<Part> getParts() {
+    public List<Part> getAll() {
         return partRepository.findAll();
     }
 
     @Override
-    public void addNewPart(Part part) {
-    partRepository.save(part);
+    public void add(Part part) {
+        partRepository.save(part);
     }
 
     @Override
@@ -34,11 +33,11 @@ public class PartService implements PartServiceInterface{
 
     @Override
     public void delete(Long id) {
-    partRepository.deleteById(id);
+        partRepository.deleteById(id);
     }
 
     @Override
     public void update(Part part) {
-    partRepository.save(part);
+        partRepository.save(part);
     }
 }

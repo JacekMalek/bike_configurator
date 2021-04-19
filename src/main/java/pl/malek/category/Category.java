@@ -1,4 +1,4 @@
-package pl.malek.model;
+package pl.malek.category;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

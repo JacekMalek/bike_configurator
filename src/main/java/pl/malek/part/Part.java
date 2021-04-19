@@ -1,4 +1,6 @@
-package pl.malek.model;
+package pl.malek.part;
+
+import pl.malek.category.Category;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,7 +22,7 @@ public class Part {
     @NotNull
     private Double weight;
 
-   @ManyToOne
+   @ManyToOne(fetch = FetchType.EAGER)
    @NotNull
    private Category category;
 
@@ -29,18 +31,6 @@ public class Part {
 
     @NotNull
     private BigDecimal price;
-
-    public Part() {
-    }
-
-    public Part(@NotNull @Size(min = 2, max = 255) String name, @NotNull Double weight, @NotNull Category category, @NotNull String producer,
-                @NotNull BigDecimal price) {
-        this.name = name;
-        this.weight = weight;
-        this.category = category;
-        this.producer = producer;
-        this.price = price;
-    }
 
     @Override
     public String toString() {
@@ -53,6 +43,8 @@ public class Part {
                 ", price=" + price +
                 '}';
     }
+
+
 
     public Long getId() {
         return id;

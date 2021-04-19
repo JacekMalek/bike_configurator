@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="pl_PL">
 <head>
-    <title>Wszystkie części</title>
+    <title>Wszystkie kategorie</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,44 +17,27 @@
 </head>
 <body>
 <div>
-    <button type="button" class="btn btn-success"><a href="/part/add"><i class="fa fa-plus"></i> Nowa część</a></button></td>
-</div>
-<div class="form-group">
-    <label for="Select">Sortuj według:</label>
-    <select class="form-control" id="Select">
-        <option>Nazwa</option>
-        <option>Cena</option>
-        <option>Waga</option>
-        <option>Kategoria</option>
-        <option>Producent</option>
-    </select>
+    <button type="button" class="btn btn-success"><a href="/category/add"><i class="fa fa-plus"></i> Nowa kategoria</a></button></td>
 </div>
 
 <br>
 <table class="table table-hover table-bordered" >
     <thead>
     <th>Nazwa</th>
-    <th>Cena</th>
-    <th>Waga</th>
-    <th>Kategoria</th>
-    <th>Producent</th>
-    <th>Szczegóły</th>
     <th>Akcja</th>
     </thead>
     <tbody>
-    <c:forEach items="${parts}" var="part">
+    <c:forEach items="${category}" var="category">
         <tr>
-            <td><c:out value="${part.name}"/></td>
-            <td><c:out value="${part.price}"/></td>
-            <td><c:out value="${part.weight}"/></td>
-            <td><c:out value="${part.category}"/></td>
-            <td><c:out value="${part.producer}"/></td>
-            <td><a href="/part/details/${part.id}"><input type="button" value="Pokaż" class="btn btn-primary" /></a></td>
-            <td><a href="/part/edit/${part.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
-                <button type="button" class="btn btn-danger"><a href="/part/delete/${part.id}"><i class="fa fa-trash-o fa-lg"></i> Usuń </a></button></td>
+            <td><c:out value="${category.name}"/></td>
+
+            <td><a href="/category/edit/${category.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
+                <button type="button" class="btn btn-danger"><a href="/category/delete/${category.id}"><i class="fa fa-trash-o fa-lg"></i> Usuń </a></button></td>
         </tr>
     </c:forEach>
     </tbody>
+
+
 </table>
 <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
 

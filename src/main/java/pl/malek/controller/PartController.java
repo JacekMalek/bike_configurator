@@ -3,19 +3,12 @@ package pl.malek.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.malek.model.Part;
-import pl.malek.repository.PartRepository;
+import org.springframework.web.bind.annotation.*;
+import pl.malek.part.Part;
 import pl.malek.service.PartService;
 
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/part")
@@ -28,7 +21,7 @@ public class PartController {
 
     @GetMapping("/all")
     public String showParts(Model model) {
-        List<Part> parts = partService.getParts();
+        List<Part> parts = partService.getAll();
         model.addAttribute("parts", parts);
         return "/all_parts";
     }
@@ -44,9 +37,33 @@ public class PartController {
         if (bindingResult.hasErrors()) {
             return "new_part";
         }
-        partService.addNewPart(part);
+        partService.add(part);
         return "redirect:/part/all";
     }
+
+    @GetMapping("/edit/{id}")
+    public String editPart(@PathVariable Long id, Model model){
+        model.addAttribute("part", partService.get(id));
+        return "/edit_part";
+    }
+
+    @PostMapping("/edit")
+    public String postEditPart(@Valid Part part, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "part";
+        }
+        partService.update(part);
+        return "redirect:/part/edit";
+    }
+
+//
+//    @ModelAttribute("parts")
+//    public Collection<String> categories() {
+//        return partService.getParts();
+//    }
+
+
+
 
 //    @ModelAttribute("categories")
 //    public Collection<String> categories() {

@@ -2,9 +2,9 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
+
 <head>
-    <title>Nowa część</title>
-    <link href="/style/style.css" rel="stylesheet"/>
+    <title>Edycja kategorii</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,36 +15,26 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
-
+<br><br>
 <body>
-<h3>Nowa część:</h3>
-
-<form:form method="post" modelAttribute="part">
+<h3>Edycja kategorii:</h3>
+<c:url var="edit_url" value="/category/edit/"/>
+<form:form method="post" modelAttribute="category" action="${edit_url}">
+    <p>
+        <form:hidden path="id"/>
+    </p>
 
     <p>Nazwa: <form:input path="name"/>
         <form:errors path="name" cssClass="error"/>
     </p>
-    <p>Cena: <form:input path="price"/>
-        <form:errors path="price" cssClass="error"/>
-    </p>
-    <p>Waga: <form:input path="weight"/>
-        <form:errors path="weight" cssClass="error"/>
-    </p>
-    <p>Kategoria: <form:select path="category.id" items="${categories}" itemLabel="name" itemValue="id"/><br>
-        <form:errors path="category" cssClass="error"/>
-    </p>
-    <p>Producent: <form:input path="producer"/>
-        <form:errors path="producer" cssClass="error"/>
-
-    </p>
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/part/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/category/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
 
-
 </form:form>
+
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -55,5 +45,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
         integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
