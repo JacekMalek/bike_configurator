@@ -1,25 +1,25 @@
-package pl.malek.dto;
+package pl.malek.model;
 
-
-import pl.malek.model.Frame;
-import pl.malek.model.Wheel;
-
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Entity
+@Table(name = "frames")
+public class Frame {
 
-public class BikeDto {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotNull
+
     private String name;
 
     @NotNull
-    private Frame frame;
+    private String size;
 
     @NotNull
-    private Wheel wheel;
+    private String material;
 
     @NotNull
     private Double weight;
@@ -27,16 +27,15 @@ public class BikeDto {
     @NotNull
     private BigDecimal price;
 
-
-    public BikeDto() {
-    }
-
-    public BikeDto(@NotNull String name, @NotNull Frame frame, @NotNull Wheel wheel, @NotNull Double weight, @NotNull BigDecimal price) {
+    public Frame(@NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
+        this.size = size;
+        this.material = material;
         this.weight = weight;
         this.price = price;
+    }
+
+    public Frame() {
     }
 
     public Long getId() {
@@ -55,22 +54,6 @@ public class BikeDto {
         this.name = name;
     }
 
-    public Frame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(Frame frame) {
-        this.frame = frame;
-    }
-
-    public Wheel getWheel() {
-        return wheel;
-    }
-
-    public void setWheel(Wheel wheel) {
-        this.wheel = wheel;
-    }
-
     public Double getWeight() {
         return weight;
     }
@@ -85,5 +68,21 @@ public class BikeDto {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
     }
 }

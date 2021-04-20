@@ -26,7 +26,9 @@ public class BikeService implements MethodInterface<BikeDto>{
     @Override
     public void add(BikeDto bikeDto) {
         Bike bike = new Bike();
-        bike.setBikeName(bikeDto.getBikeName());
+        bike.setName(bikeDto.getName());
+        bike.setFrame(bikeDto.getFrame());
+      //  bike.setWheel(bikeDto.getWheel());
         bikeRepository.save(bike);
     }
 

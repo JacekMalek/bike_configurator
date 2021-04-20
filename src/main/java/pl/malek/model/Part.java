@@ -29,10 +29,6 @@ public class Part {
     @NotNull
     private BigDecimal price;
 
-    @ManyToMany
-    @Transient
-    private Bike bike;
-
     @Override
     public String toString() {
         return "Part{" +

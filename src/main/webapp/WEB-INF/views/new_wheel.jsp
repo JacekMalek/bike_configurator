@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Nowy rower</title>
+    <title>Nowe koła</title>
     <link href="/style/style.css" rel="stylesheet"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,32 +17,36 @@
 </head>
 
 <body>
-<h3>Nowy rower:</h3>
+<h3>Nowe koła:</h3>
 
+<form:form method="post" modelAttribute="wheel">
 
-<form:form method="post" modelAttribute="bike">
-
-    <p>Nazwa: <form:input path="name"/>
+    <p>
+        Nazwa: <form:input path="name"/>
         <form:errors path="name" cssClass="error"/>
     </p>
 
     <p>
-        Rama: <form:select path="frame.id" items="${frames}" itemLabel="name" itemValue="id"/><br>
-        <form:errors path="frame" cssClass="error"/>
+        Rozmiar: <form:select path="size" items="${size}" /><br>
+        <form:errors path="size" cssClass="error"/>
     </p>
 
 
     <p>
-        Koła: <form:select path="wheel.id" items="${wheels}" itemLabel="name" itemValue="id"/><br>
-        <form:errors path="wheel" cssClass="error"/>
+        Waga: <form:input path="weight"/>
+        <form:errors path="weight" cssClass="error"/>
     </p>
 
-
+    <p>
+        Cena: <form:input path="price"/>
+        <form:errors path="price" cssClass="error"/>
+    </p>
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/wheel/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
+
 
 </form:form>
 

@@ -1,25 +1,17 @@
 package pl.malek.dto;
 
-
-import pl.malek.model.Frame;
-import pl.malek.model.Wheel;
-
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-
-public class BikeDto {
+public class WheelDto {
 
     private Long id;
-
     @NotNull
+
     private String name;
 
     @NotNull
-    private Frame frame;
-
-    @NotNull
-    private Wheel wheel;
+    private String size;
 
     @NotNull
     private Double weight;
@@ -27,14 +19,12 @@ public class BikeDto {
     @NotNull
     private BigDecimal price;
 
-
-    public BikeDto() {
+    public WheelDto() {
     }
 
-    public BikeDto(@NotNull String name, @NotNull Frame frame, @NotNull Wheel wheel, @NotNull Double weight, @NotNull BigDecimal price) {
+    public WheelDto(@NotNull String name, @NotNull String size, @NotNull Double weight, @NotNull BigDecimal price) {
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
+        this.size = size;
         this.weight = weight;
         this.price = price;
     }
@@ -55,20 +45,12 @@ public class BikeDto {
         this.name = name;
     }
 
-    public Frame getFrame() {
-        return frame;
+    public String getSize() {
+        return size;
     }
 
-    public void setFrame(Frame frame) {
-        this.frame = frame;
-    }
-
-    public Wheel getWheel() {
-        return wheel;
-    }
-
-    public void setWheel(Wheel wheel) {
-        this.wheel = wheel;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public Double getWeight() {
