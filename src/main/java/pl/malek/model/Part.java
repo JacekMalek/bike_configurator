@@ -20,8 +20,7 @@ public class Part {
     @NotNull
     private Double weight;
 
-   @ManyToOne(fetch = FetchType.EAGER)
-   @NotNull
+   @OneToOne(fetch = FetchType.EAGER)
    private Category category;
 
     @NotNull
@@ -29,6 +28,10 @@ public class Part {
 
     @NotNull
     private BigDecimal price;
+
+    @ManyToMany
+    @Transient
+    private Bike bike;
 
     @Override
     public String toString() {

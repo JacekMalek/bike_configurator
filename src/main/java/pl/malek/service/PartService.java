@@ -2,6 +2,7 @@ package pl.malek.service;
 
 import org.springframework.stereotype.Service;
 import pl.malek.dto.PartDto;
+import pl.malek.model.Category;
 import pl.malek.model.Part;
 import pl.malek.repository.PartRepository;
 
@@ -31,12 +32,12 @@ public class PartService implements MethodInterface<PartDto> {
         Part part = new Part();
         part.setName(partDto.getName());
         part.setWeight(partDto.getWeight());
-        part.setCategory(partDto.getCategory());
+        part.setCategory(partDto.getCategory());;// Jeśli to zakomentuję to zapisywanie do bazy działą ale bez dodawania kategorii
         part.setProducer(partDto.getProducer());
         part.setPrice(partDto.getPrice());
         partRepository.save(part);
     }
-
+//Nie wiem jak to przerobić!
     @Override
     public Optional<PartDto> get(Long id) {
         return null;

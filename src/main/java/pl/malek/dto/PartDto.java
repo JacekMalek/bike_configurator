@@ -4,6 +4,7 @@ import pl.malek.model.Category;
 
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -12,26 +13,18 @@ public class PartDto {
 
     private Long id;
 
-    @NotNull
-    @Size(min = 2, max = 255)
     private String name;
 
-    @NotNull
     private Double weight;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @NotNull
     private Category category;
 
-    @NotNull
     private String producer;
 
-    @NotNull
     private BigDecimal price;
 
 
-    public PartDto(@NotNull @Size(min = 2, max = 255) String name, @NotNull Double weight, @NotNull Category category,
-                   @NotNull String producer, @NotNull BigDecimal price) {
+    public PartDto(String name, Double weight, Category category, String producer, BigDecimal price) {
         this.name = name;
         this.weight = weight;
         this.category = category;
