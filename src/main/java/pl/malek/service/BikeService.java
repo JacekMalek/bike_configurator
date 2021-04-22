@@ -27,7 +27,7 @@ public class BikeService implements MethodInterface<BikeDto>{
     public List<BikeDto> getAll() {
         return bikeRepository.findAll()
                 .stream()
-                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getWeight(), bike.getPrice()))
+                .map(bike -> new BikeDto(bike.getId(),bike.getName(), bike.getWeight(), bike.getPrice()))
                 .collect(Collectors.toList());
     }
 

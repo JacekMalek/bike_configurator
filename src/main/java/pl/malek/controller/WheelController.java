@@ -4,7 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.malek.dto.PartDto;
 import pl.malek.dto.WheelDto;
 import pl.malek.service.WheelService;
 import javax.validation.Valid;
