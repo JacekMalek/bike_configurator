@@ -24,7 +24,7 @@ public class CategoryService implements MethodInterface<CategoryDto> {
     public List<CategoryDto> getAll() {
         return categoryRepository.findAll()
                 .stream()
-                .map(category -> new CategoryDto(category.getName()))
+                .map(category -> new CategoryDto(category.getId(), category.getName()))
                 .collect(Collectors.toList());
     }
 

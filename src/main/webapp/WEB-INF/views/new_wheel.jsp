@@ -19,7 +19,7 @@
 <body>
 <h3>Nowe koła:</h3>
 
-<form:form method="post" modelAttribute="wheel">
+<form:form method="post" modelAttribute="wheelDto">
 
     <p>
         Nazwa: <form:input path="name"/>

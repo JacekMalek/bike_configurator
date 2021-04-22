@@ -15,26 +15,25 @@ public class BikeDto {
     @NotNull
     private String name;
 
-    @NotNull
+
     private Frame frame;
 
-    @NotNull
+
     private Wheel wheel;
 
-    @NotNull
+
     private Double weight;
 
-    @NotNull
+
     private BigDecimal price;
 
 
     public BikeDto() {
     }
 
-    public BikeDto(@NotNull String name, @NotNull Frame frame, @NotNull Wheel wheel, @NotNull Double weight, @NotNull BigDecimal price) {
+    public BikeDto(Long id, @NotNull String name, Double weight, BigDecimal price) {
+        this.id = id;
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
         this.weight = weight;
         this.price = price;
     }

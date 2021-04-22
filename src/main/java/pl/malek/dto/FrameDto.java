@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 
 public class FrameDto {
 
+
     private Long id;
     @NotNull
     private String name;
@@ -21,13 +22,15 @@ public class FrameDto {
     @NotNull
     private BigDecimal price;
 
-    public FrameDto(@NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
+    public FrameDto(Long id, @NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
+        this.id = id;
         this.name = name;
         this.size = size;
         this.material = material;
         this.weight = weight;
         this.price = price;
     }
+
 
     public FrameDto() {
     }

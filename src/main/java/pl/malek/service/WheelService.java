@@ -1,9 +1,8 @@
 package pl.malek.service;
 
 import org.springframework.stereotype.Service;
-import pl.malek.dto.FrameDto;
 import pl.malek.dto.WheelDto;
-import pl.malek.model.Frame;
+
 import pl.malek.model.Wheel;
 import pl.malek.repository.WheelRepository;
 
@@ -24,7 +23,7 @@ public class WheelService implements MethodInterface<WheelDto> {
     public List<WheelDto> getAll() {
         return wheelRepository.findAll()
                 .stream()
-                .map(wheel -> new WheelDto(wheel.getName(),wheel.getSize(), wheel.getWeight(), wheel.getPrice()))
+                .map(wheel -> new WheelDto(wheel.getId(), wheel.getName(),wheel.getSize(), wheel.getWeight(), wheel.getPrice()))
                 .collect(Collectors.toList());
     }
 
@@ -46,11 +45,17 @@ public class WheelService implements MethodInterface<WheelDto> {
 
     @Override
     public void delete(Long id) {
-
+        wheelRepository.deleteById(id);
     }
 
     @Override
     public void update(WheelDto wheelDto) {
-
+        Wheel wheel = new Wheel();
+        wheel.setId(wheelDto.getId());
+        wheel.setName(wheelDto.getName());
+        wheel.setSize(wheelDto.getSize());
+        wheel.setWeight(wheelDto.getWeight());
+        wheel.setPrice(wheelDto.getPrice());
+        wheelRepository.save(wheel);
     }
 }

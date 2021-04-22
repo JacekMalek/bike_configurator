@@ -6,8 +6,8 @@ import java.math.BigDecimal;
 public class WheelDto {
 
     private Long id;
-    @NotNull
 
+    @NotNull
     private String name;
 
     @NotNull
@@ -22,7 +22,8 @@ public class WheelDto {
     public WheelDto() {
     }
 
-    public WheelDto(@NotNull String name, @NotNull String size, @NotNull Double weight, @NotNull BigDecimal price) {
+    public WheelDto(Long id, @NotNull String name, @NotNull String size, @NotNull Double weight, @NotNull BigDecimal price) {
+        this.id = id;
         this.name = name;
         this.size = size;
         this.weight = weight;

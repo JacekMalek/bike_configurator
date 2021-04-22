@@ -16,13 +16,15 @@ public class Bike {
     @NotNull
     private String name;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+
+    @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Frame frame;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+
+
+    @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Wheel wheel;
+
 
 //    @ManyToMany(fetch = FetchType.EAGER)
 //    @JoinTable(

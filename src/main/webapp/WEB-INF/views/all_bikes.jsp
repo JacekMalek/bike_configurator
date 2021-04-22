@@ -17,12 +17,9 @@
 </head>
 <body>
 <div>
-    <button type="button" class="btn btn-success"><a href="/bike/add"><i class="fa fa-plus"></i> Nowy rower</a></button></td>
-<%--    <button type="button" class="btn btn-success"><a href="/part/add"><i class="fa fa-plus"></i> Nowa część</a></button></td>--%>
-<%--    <button type="button" class="btn btn-success"><a href="/category/add"><i class="fa fa-plus"></i> Nowa kategoria</a></button></td>--%>
-    <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowa rama</a></button></td>
-    <button type="button" class="btn btn-success"><a href="/wheel/add"><i class="fa fa-plus"></i> Nowe koła</a></button></td>
-</div>
+    <div>
+        <h2>Nasze rowery:</h2>
+    </div>
 <div class="form-group">
     <label for="Select">Sortuj według:</label>
     <select class="form-control" id="Select">
@@ -32,6 +29,14 @@
     </select>
 </div>
 
+    <button type="button" class="btn btn-success"><a href="/bike/add"><i class="fa fa-plus"></i> Nowy rower</a></button></td>
+    <%--    <button type="button" class="btn btn-success"><a href="/part/add"><i class="fa fa-plus"></i> Nowa część</a></button></td>--%>
+    <%--    <button type="button" class="btn btn-success"><a href="/category/add"><i class="fa fa-plus"></i> Nowa kategoria</a></button></td>--%>
+    <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowa rama</a></button></td>
+    <button type="button" class="btn btn-success"><a href="/wheel/add"><i class="fa fa-plus"></i> Nowe koła</a></button></td>
+    <button type="button" class="btn btn-success"><a href="/frame/all"><i class="btn btn-primary" ></i> Wszystkie ramy</a></button></td>
+    <button type="button" class="btn btn-success"><a href="/wheel/all"><i class="btn btn-primary" ></i> Wszystkie koła</a></button></td>
+</div>
 <br>
 <table class="table table-hover table-bordered" >
     <thead>

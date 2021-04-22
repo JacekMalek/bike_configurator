@@ -3,11 +3,9 @@ package pl.malek.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.malek.dto.BikeDto;
+
 import pl.malek.dto.FrameDto;
 import pl.malek.dto.WheelDto;
 import pl.malek.model.Bike;
@@ -33,24 +31,32 @@ public class BikeController {
     }
 
     @GetMapping("/all")
-    public String allCategory(Model model){
+    public String allBikes(Model model){
         List<BikeDto> bikes = bikeService.getAll();
-        model.addAttribute("bike", bikes);
+        List<FrameDto> frames = frameService.getAll();
+        model.addAttribute("bikes", bikes);
+        model.addAttribute("frame", frames);
         return "all_bikes";
     }
 
     @GetMapping("/add")
     public String addNewBike(Model model) {
-        model.addAttribute("bike", new Bike());
+        model.addAttribute("bikeDto", new BikeDto());
         return "new_bike";
     }
 
     @PostMapping("/add")
-    public String postAddBike(@Valid BikeDto bikeDto, BindingResult bindingResult) {
+    public String postAddBike(@ModelAttribute("bikeDto") @Valid BikeDto bikeDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new_bike";
         }
         bikeService.add(bikeDto);
+        return "redirect:/bike/all";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteBike(@PathVariable Long id){
+        bikeService.delete(id);
         return "redirect:/bike/all";
     }
 

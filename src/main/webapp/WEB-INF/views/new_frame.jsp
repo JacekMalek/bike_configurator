@@ -19,7 +19,7 @@
 <body>
 <h3>Nowa rama:</h3>
 
-<form:form method="post" modelAttribute="frame">
+<form:form method="post" modelAttribute="frameDto">
 
     <p>
         Nazwa: <form:input path="name"/>

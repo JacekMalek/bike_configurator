@@ -22,7 +22,7 @@ public class FrameService implements MethodInterface<FrameDto>{
     public List<FrameDto> getAll() {
         return frameRepository.findAll()
                 .stream()
-                .map(frame -> new FrameDto(frame.getName(),frame.getSize(), frame.getMaterial(), frame.getWeight(), frame.getPrice()))
+                .map(frame -> new FrameDto(frame.getId(), frame.getName(),frame.getSize(), frame.getMaterial(), frame.getWeight(), frame.getPrice()))
                 .collect(Collectors.toList());
     }
 
@@ -44,7 +44,7 @@ public class FrameService implements MethodInterface<FrameDto>{
 
     @Override
     public void delete(Long id) {
-
+        frameRepository.deleteById(id);
     }
 
     @Override

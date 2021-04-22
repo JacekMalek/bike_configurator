@@ -11,8 +11,8 @@ public class Frame {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
 
+    @NotNull
     private String name;
 
     @NotNull

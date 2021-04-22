@@ -3,10 +3,8 @@ package pl.malek.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import pl.malek.dto.PartDto;
 import pl.malek.dto.WheelDto;
 import pl.malek.service.WheelService;
 import javax.validation.Valid;
@@ -32,7 +30,7 @@ public final WheelService wheelService;
 
     @GetMapping("/add")
     public String newWheel(Model model) {
-        model.addAttribute("wheel", new WheelDto());
+        model.addAttribute("wheelDto", new WheelDto());
         return "new_wheel";
     }
 
@@ -43,6 +41,28 @@ public final WheelService wheelService;
             return "new_wheel";
         }
         wheelService.add(wheelDto);
+        return "redirect:/wheel/all";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editWheel(@PathVariable Long id, Model model){
+        model.addAttribute("wheel", wheelService.get(id));
+        return "/edit_wheel";
+    }
+
+    @PostMapping("/edit")
+    public String postEditWheel(@Valid WheelDto wheelDto, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "edit_wheel";
+        }
+        wheelService.update(wheelDto);
+        return "redirect:/wheel/all";
+    }
+
+
+    @GetMapping("/delete/{id}")
+    public String deleteWheel(@PathVariable long id){
+        wheelService.delete(id);
         return "redirect:/wheel/all";
     }
 

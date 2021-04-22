@@ -17,7 +17,7 @@
 </head>
 <body>
 <div>
-    <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowe koła</a></button></td>
+    <button type="button" class="btn btn-success"><a href="/wheel/add"><i class="fa fa-plus"></i> Nowe koła</a></button></td>
 </div>
 
 <br>

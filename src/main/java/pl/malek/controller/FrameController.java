@@ -3,17 +3,13 @@ package pl.malek.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.malek.dto.FrameDto;
 import pl.malek.service.FrameService;
 
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+
 
 @Controller
 @RequestMapping("/frame")
@@ -35,7 +31,7 @@ public class FrameController {
 
     @GetMapping("/add")
     public String newFrame(Model model) {
-        model.addAttribute("frame", new FrameDto());
+        model.addAttribute("frameDto", new FrameDto());
         return "new_frame";
     }
 
@@ -46,6 +42,12 @@ public class FrameController {
             return "new_frame";
         }
         frameService.add(frameDto);
+        return "redirect:/frame/all";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteFrame(@PathVariable Long id){
+        frameService.delete(id);
         return "redirect:/frame/all";
     }
 
