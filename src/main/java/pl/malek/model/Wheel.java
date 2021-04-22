@@ -27,21 +27,21 @@ public class Wheel {
     @NotNull
     private BigDecimal price;
 
-//    @OneToMany(fetch = FetchType.EAGER)
-//    private final List<Bike> bike = new ArrayList<>();
-//
-//    public List<Bike> getBike(){
-//        return bike;
-//    }
+    @OneToOne
+    private Bike bike;
+
 
     public Wheel() {
     }
 
-    public Wheel(@NotNull String name, @NotNull String size, @NotNull Double weight, @NotNull BigDecimal price) {
+    public Wheel(Long id, @NotNull String name, @NotNull String size, @NotNull Double weight,
+                 @NotNull BigDecimal price, Bike bike) {
+        this.id = id;
         this.name = name;
         this.size = size;
         this.weight = weight;
         this.price = price;
+        this.bike = bike;
     }
 
     public Long getId() {

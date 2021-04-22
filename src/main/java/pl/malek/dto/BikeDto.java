@@ -5,6 +5,7 @@ import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 
@@ -13,12 +14,13 @@ public class BikeDto {
     private Long id;
 
     @NotNull
+    @Size(min = 2, max = 200)
     private String name;
 
-
+    @NotNull
     private Frame frame;
 
-
+    @NotNull
     private Wheel wheel;
 
 
@@ -31,12 +33,33 @@ public class BikeDto {
     public BikeDto() {
     }
 
+
+
     public BikeDto(Long id, @NotNull String name, Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.weight = weight;
         this.price = price;
     }
+
+    public BikeDto(Long id, @NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.frame = frame;
+        this.wheel = wheel;
+        this.weight = weight;
+        this.price = price;
+    }
+
+    public BikeDto(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+        this.name = name;
+        this.frame = frame;
+        this.wheel = wheel;
+        this.weight = weight;
+        this.price = price;
+    }
+
+
 
     public Long getId() {
         return id;

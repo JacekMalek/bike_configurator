@@ -12,13 +12,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class BikeService implements MethodInterface<BikeDto>{
+public class BikeService implements MethodInterface<BikeDto> {
 
     private final BikeRepository bikeRepository;
 
     public BikeService(BikeRepository bikeRepository) {
         this.bikeRepository = bikeRepository;
     }
+
 
     BigDecimal price = new BigDecimal("500");
 
@@ -27,9 +28,11 @@ public class BikeService implements MethodInterface<BikeDto>{
     public List<BikeDto> getAll() {
         return bikeRepository.findAll()
                 .stream()
-                .map(bike -> new BikeDto(bike.getId(),bike.getName(), bike.getWeight(), bike.getPrice()))
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getWeight(), bike.getPrice()))
                 .collect(Collectors.toList());
     }
+
 
     @Override
     public void add(BikeDto bikeDto) {
@@ -41,6 +44,7 @@ public class BikeService implements MethodInterface<BikeDto>{
         bike.setWeight(5.00);
         bikeRepository.save(bike);
     }
+
 
     @Override
     public Optional<BikeDto> get(Long id) {

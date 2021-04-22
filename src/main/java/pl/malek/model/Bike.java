@@ -2,6 +2,7 @@ package pl.malek.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 
@@ -14,38 +15,26 @@ public class Bike {
     private Long id;
 
     @NotNull
+    @Size(min = 2, max = 50)
     private String name;
 
 
-    @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     private Frame frame;
 
 
 
-    @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     private Wheel wheel;
-
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "bikes_wheels",
-//            joinColumns = @JoinColumn(
-//                    name = "bike_id", referencedColumnName = "id"),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "wheel_id", referencedColumnName = "id"))
-//
-//    private Collection<Wheel> wheel;
 
     private Double weight;
 
     private BigDecimal price;
 
-
-
     public Bike() {
     }
 
-    public Bike(@NotNull String name, @NotNull Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;

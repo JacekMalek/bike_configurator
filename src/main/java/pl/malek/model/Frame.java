@@ -27,6 +27,9 @@ public class Frame {
     @NotNull
     private BigDecimal price;
 
+    @OneToOne
+    private Bike bike;
+
     public Frame(@NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
         this.name = name;
         this.size = size;

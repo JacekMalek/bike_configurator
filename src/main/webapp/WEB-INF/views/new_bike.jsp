@@ -27,10 +27,10 @@
     </p>
 
     <p>
-        Rama: <form:select path="frame.id" items="${frames}" itemLabel="name" itemValue="id"/><br>
+        Rama: <form:select path="frame" items="${frames}" itemLabel="name" itemValue="id"/><br>
         <form:errors path="frame" cssClass="error"/>
     </p>
-
+<%--Usunłąłem id z path i nadal działa, nie wiem dlaczego--%>
 
     <p>
         Koła: <form:select path="wheel.id" items="${wheels}" itemLabel="name" itemValue="id"/><br>

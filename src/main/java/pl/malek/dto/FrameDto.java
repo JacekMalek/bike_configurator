@@ -1,13 +1,17 @@
 package pl.malek.dto;
 
+import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 public class FrameDto {
 
 
     private Long id;
+
     @NotNull
+    @Size(min = 2, max = 200)
     private String name;
 
     @NotNull
@@ -20,9 +24,11 @@ public class FrameDto {
     private Double weight;
 
     @NotNull
+    @DecimalMin("0.01")
     private BigDecimal price;
 
-    public FrameDto(Long id, @NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
+    public FrameDto(Long id, @NotNull @Size(min = 2, max = 200) String name, @NotNull String size,
+                    @NotNull String material, @NotNull Double weight, @NotNull @DecimalMin("0.01") BigDecimal price) {
         this.id = id;
         this.name = name;
         this.size = size;
@@ -30,7 +36,6 @@ public class FrameDto {
         this.weight = weight;
         this.price = price;
     }
-
 
     public FrameDto() {
     }
