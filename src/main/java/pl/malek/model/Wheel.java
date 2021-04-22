@@ -2,44 +2,46 @@ package pl.malek.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "bikes")
-public class Bike {
+@Table(name = "wheels")
+public class Wheel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @NotNull
-    @Size(min = 2, max = 50)
     private String name;
 
+    @NotNull
+    private String size;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Frame frame;
-
-
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Wheel wheel;
-
+    @NotNull
     private Double weight;
 
+    @NotNull
     private BigDecimal price;
 
-    public Bike() {
+    @OneToOne
+    private Bike bike;
+
+
+    public Wheel() {
     }
 
-    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public Wheel(Long id, @NotNull String name, @NotNull String size, @NotNull Double weight,
+                 @NotNull BigDecimal price, Bike bike) {
+        this.id = id;
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
+        this.size = size;
         this.weight = weight;
         this.price = price;
+        this.bike = bike;
     }
 
     public Long getId() {
@@ -58,20 +60,12 @@ public class Bike {
         this.name = name;
     }
 
-    public Frame getFrame() {
-        return frame;
+    public String getSize() {
+        return size;
     }
 
-    public void setFrame(Frame frame) {
-        this.frame = frame;
-    }
-
-    public Wheel getWheel() {
-        return wheel;
-    }
-
-    public void setWheel(Wheel wheels) {
-        this.wheel = wheels;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public Double getWeight() {
@@ -89,6 +83,4 @@ public class Bike {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-
 }

@@ -1,43 +1,37 @@
-package pl.malek.model;
+package pl.malek.dto;
 
-import javax.persistence.*;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
+public class WheelDto {
 
-@Entity
-@Table(name = "bikes")
-public class Bike {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 200)
     private String name;
 
+    @NotNull
+    private String size;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Frame frame;
-
-
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Wheel wheel;
-
+    @NotNull
     private Double weight;
 
+    @NotNull
+    @DecimalMin("0.01")
     private BigDecimal price;
 
-    public Bike() {
+    public WheelDto() {
     }
 
-    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public WheelDto(Long id, @NotNull @Size(min = 2, max = 200) String name,
+                    @NotNull String size, @NotNull Double weight, @NotNull @DecimalMin("0.01") BigDecimal price) {
+        this.id = id;
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
+        this.size = size;
         this.weight = weight;
         this.price = price;
     }
@@ -58,20 +52,12 @@ public class Bike {
         this.name = name;
     }
 
-    public Frame getFrame() {
-        return frame;
+    public String getSize() {
+        return size;
     }
 
-    public void setFrame(Frame frame) {
-        this.frame = frame;
-    }
-
-    public Wheel getWheel() {
-        return wheel;
-    }
-
-    public void setWheel(Wheel wheels) {
-        this.wheel = wheels;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public Double getWeight() {
@@ -89,6 +75,4 @@ public class Bike {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-
 }

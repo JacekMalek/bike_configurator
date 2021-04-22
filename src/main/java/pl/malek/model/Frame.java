@@ -2,44 +2,43 @@ package pl.malek.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-
 @Entity
-@Table(name = "bikes")
-public class Bike {
+@Table(name = "frames")
+public class Frame {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(min = 2, max = 50)
     private String name;
 
+    @NotNull
+    private String size;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private Frame frame;
+    @NotNull
+    private String material;
 
-
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private Wheel wheel;
-
+    @NotNull
     private Double weight;
 
+    @NotNull
     private BigDecimal price;
 
-    public Bike() {
-    }
+    @OneToOne
+    private Bike bike;
 
-    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public Frame(@NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
         this.name = name;
-        this.frame = frame;
-        this.wheel = wheel;
+        this.size = size;
+        this.material = material;
         this.weight = weight;
         this.price = price;
+    }
+
+    public Frame() {
     }
 
     public Long getId() {
@@ -58,22 +57,6 @@ public class Bike {
         this.name = name;
     }
 
-    public Frame getFrame() {
-        return frame;
-    }
-
-    public void setFrame(Frame frame) {
-        this.frame = frame;
-    }
-
-    public Wheel getWheel() {
-        return wheel;
-    }
-
-    public void setWheel(Wheel wheels) {
-        this.wheel = wheels;
-    }
-
     public Double getWeight() {
         return weight;
     }
@@ -90,5 +73,19 @@ public class Bike {
         this.price = price;
     }
 
+    public String getSize() {
+        return size;
+    }
 
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String material) {
+        this.material = material;
+    }
 }

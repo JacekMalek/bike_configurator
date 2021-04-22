@@ -1,46 +1,65 @@
-package pl.malek.model;
+package pl.malek.dto;
 
-import javax.persistence.*;
+
+import pl.malek.model.Frame;
+import pl.malek.model.Wheel;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 
-@Entity
-@Table(name = "bikes")
-public class Bike {
+public class BikeDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @Size(min = 2, max = 50)
+    @Size(min = 2, max = 200)
     private String name;
 
-
-    @OneToOne(fetch = FetchType.EAGER)
+    @NotNull
     private Frame frame;
 
-
-
-    @OneToOne(fetch = FetchType.EAGER)
+    @NotNull
     private Wheel wheel;
+
 
     private Double weight;
 
+
     private BigDecimal price;
 
-    public Bike() {
+
+    public BikeDto() {
     }
 
-    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+
+
+    public BikeDto(Long id, @NotNull String name, Double weight, BigDecimal price) {
+        this.id = id;
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+    }
+
+    public BikeDto(Long id, @NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+        this.id = id;
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;
         this.weight = weight;
         this.price = price;
     }
+
+    public BikeDto(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+        this.name = name;
+        this.frame = frame;
+        this.wheel = wheel;
+        this.weight = weight;
+        this.price = price;
+    }
+
+
 
     public Long getId() {
         return id;
@@ -70,8 +89,8 @@ public class Bike {
         return wheel;
     }
 
-    public void setWheel(Wheel wheels) {
-        this.wheel = wheels;
+    public void setWheel(Wheel wheel) {
+        this.wheel = wheel;
     }
 
     public Double getWeight() {
@@ -89,6 +108,4 @@ public class Bike {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
-
-
 }
