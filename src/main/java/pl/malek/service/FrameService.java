@@ -41,7 +41,11 @@ public class FrameService implements MethodInterface<FrameDto>{
 
     @Override
     public Optional<FrameDto> get(Long id) {
-        return Optional.empty();
+        return frameRepository.findById(id)
+                .stream()
+                .map(frame -> new FrameDto(frame.getId(), frame.getName(), frame.getSize(), frame.getMaterial(),
+                        frame.getProducer(), frame.getWeight(), frame.getPrice()))
+                .findFirst();
     }
 
     @Override
@@ -51,6 +55,14 @@ public class FrameService implements MethodInterface<FrameDto>{
 
     @Override
     public void update(FrameDto frameDto) {
-
+        Frame frame = new Frame();
+        frame.setId(frameDto.getId());
+        frame.setName(frameDto.getName());
+        frame.setSize(frameDto.getSize());
+        frame.setMaterial(frameDto.getMaterial());
+        frame.setProducer(frameDto.getProducer());
+        frame.setWeight(frameDto.getWeight());
+        frame.setPrice(frameDto.getPrice());
+        frameRepository.save(frame);
     }
 }

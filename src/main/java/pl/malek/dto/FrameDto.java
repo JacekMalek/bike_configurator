@@ -29,7 +29,8 @@ public class FrameDto {
     @DecimalMin("0.01")
     private BigDecimal price;
 
-    public FrameDto(Long id, String name, String size, String material, String producer, Double weight, BigDecimal price) {
+    public FrameDto(Long id, String name, String size, String material, String producer,
+                    Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.size = size;

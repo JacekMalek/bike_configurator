@@ -40,7 +40,11 @@ public class WheelService implements MethodInterface<WheelDto> {
 
     @Override
     public Optional<WheelDto> get(Long id) {
-        return Optional.empty();
+        return wheelRepository.findById(id)
+                .stream()
+                .map(wheel -> new WheelDto(wheel.getId(), wheel.getName(), wheel.getSize(),
+                        wheel.getWeight(), wheel.getPrice()))
+                .findFirst();
     }
 
     @Override

@@ -61,7 +61,14 @@ public class BikeService implements MethodInterface<BikeDto> {
 
     @Override
     public void update(BikeDto bikeDto) {
-
+        Bike bike = new Bike();
+        bike.setId(bikeDto.getId());
+        bike.setName(bikeDto.getName());
+        bike.setFrame(bikeDto.getFrame());
+        bike.setWheel(bikeDto.getWheel());
+        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel()));
+        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel()));
+        bikeRepository.save(bike);
     }
 
 }

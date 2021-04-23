@@ -45,6 +45,22 @@ public class FrameController {
         return "redirect:/frame/all";
     }
 
+
+    @GetMapping("/edit/{id}")
+    public String editFrame(@PathVariable Long id, Model model){
+        model.addAttribute("frame", frameService.get(id));
+        return "/edit_frame";
+    }
+
+    @PostMapping("/edit")
+    public String postEditFrame(@Valid FrameDto frameDto, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            return "edit_frame";
+        }
+        frameService.update(frameDto);
+        return "redirect:/frame/all";
+    }
+
     @GetMapping("/delete/{id}")
     public String deleteFrame(@PathVariable Long id){
         frameService.delete(id);
