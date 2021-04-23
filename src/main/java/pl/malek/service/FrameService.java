@@ -22,7 +22,8 @@ public class FrameService implements MethodInterface<FrameDto>{
     public List<FrameDto> getAll() {
         return frameRepository.findAll()
                 .stream()
-                .map(frame -> new FrameDto(frame.getId(), frame.getName(),frame.getSize(), frame.getMaterial(), frame.getWeight(), frame.getPrice()))
+                .map(frame -> new FrameDto(frame.getId(), frame.getName(),frame.getSize(), frame.getMaterial(), frame.getProducer(),
+                        frame.getWeight(), frame.getPrice()))
                 .collect(Collectors.toList());
     }
 
@@ -32,6 +33,7 @@ public class FrameService implements MethodInterface<FrameDto>{
         frame.setName(frameDto.getName());
         frame.setSize(frameDto.getSize());
         frame.setMaterial(frameDto.getMaterial());
+        frame.setProducer(frameDto.getProducer());
         frame.setWeight(frameDto.getWeight());
         frame.setPrice(frameDto.getPrice());
         frameRepository.save(frame);
