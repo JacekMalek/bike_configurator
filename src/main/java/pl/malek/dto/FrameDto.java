@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 
 public class FrameDto {
 
-
     private Long id;
 
     @NotNull
@@ -27,8 +26,7 @@ public class FrameDto {
     @DecimalMin("0.01")
     private BigDecimal price;
 
-    public FrameDto(Long id, @NotNull @Size(min = 2, max = 200) String name, @NotNull String size,
-                    @NotNull String material, @NotNull Double weight, @NotNull @DecimalMin("0.01") BigDecimal price) {
+    public FrameDto(Long id, String name, String size, String material, Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.size = size;

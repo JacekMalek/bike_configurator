@@ -18,11 +18,8 @@ public class Bike {
     @Size(min = 2, max = 50)
     private String name;
 
-
     @OneToOne(fetch = FetchType.EAGER)
     private Frame frame;
-
-
 
     @OneToOne(fetch = FetchType.EAGER)
     private Wheel wheel;
@@ -34,7 +31,7 @@ public class Bike {
     public Bike() {
     }
 
-    public Bike(@NotNull String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public Bike( String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;
