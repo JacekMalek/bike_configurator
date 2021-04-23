@@ -1,9 +1,17 @@
 package pl.malek.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import pl.malek.Calculator.PriceCalculator;
+import pl.malek.Calculator.WeightCalculator;
 import pl.malek.dto.BikeDto;
+import pl.malek.dto.FrameDto;
+import pl.malek.dto.WheelDto;
 import pl.malek.model.Bike;
 
+import pl.malek.model.Frame;
+import pl.malek.model.Wheel;
 import pl.malek.repository.BikeRepository;
 
 import java.math.BigDecimal;
@@ -15,13 +23,11 @@ import java.util.stream.Collectors;
 public class BikeService implements MethodInterface<BikeDto> {
 
     private final BikeRepository bikeRepository;
+    private static final Logger log = LoggerFactory.getLogger(BikeService.class);
 
     public BikeService(BikeRepository bikeRepository) {
         this.bikeRepository = bikeRepository;
     }
-
-
-    BigDecimal price = new BigDecimal("500");
 
 
     @Override
@@ -40,8 +46,8 @@ public class BikeService implements MethodInterface<BikeDto> {
         bike.setName(bikeDto.getName());
         bike.setFrame(bikeDto.getFrame());
         bike.setWheel(bikeDto.getWheel());
-        bike.setPrice(price);
-        bike.setWeight(5.00);
+        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel()));
+        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel()));
         bikeRepository.save(bike);
     }
 
@@ -60,4 +66,5 @@ public class BikeService implements MethodInterface<BikeDto> {
     public void update(BikeDto bikeDto) {
 
     }
+
 }

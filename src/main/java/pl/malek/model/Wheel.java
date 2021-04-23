@@ -3,8 +3,7 @@ package pl.malek.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Table(name = "wheels")
@@ -13,7 +12,6 @@ public class Wheel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @NotNull
     private String name;
@@ -34,8 +32,7 @@ public class Wheel {
     public Wheel() {
     }
 
-    public Wheel(Long id, @NotNull String name, @NotNull String size, @NotNull Double weight,
-                 @NotNull BigDecimal price, Bike bike) {
+    public Wheel(Long id, String name, String size, Double weight, BigDecimal price, Bike bike) {
         this.id = id;
         this.name = name;
         this.size = size;

@@ -33,7 +33,7 @@
 <%--Usunłąłem id z path i nadal działa, nie wiem dlaczego--%>
 
     <p>
-        Koła: <form:select path="wheel.id" items="${wheels}" itemLabel="name" itemValue="id"/><br>
+        Koła: <form:select path="wheel" items="${wheels}" itemLabel="name" itemValue="id"/><br>
         <form:errors path="wheel" cssClass="error"/>
     </p>
 

@@ -30,7 +30,7 @@ public class Frame {
     @OneToOne
     private Bike bike;
 
-    public Frame(@NotNull String name, @NotNull String size, @NotNull String material, @NotNull Double weight, @NotNull BigDecimal price) {
+    public Frame(String name, String size, String material, Double weight, BigDecimal price) {
         this.name = name;
         this.size = size;
         this.material = material;

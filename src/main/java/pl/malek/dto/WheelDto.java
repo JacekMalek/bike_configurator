@@ -1,7 +1,6 @@
 package pl.malek.dto;
 
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -27,8 +26,7 @@ public class WheelDto {
     public WheelDto() {
     }
 
-    public WheelDto(Long id, @NotNull @Size(min = 2, max = 200) String name,
-                    @NotNull String size, @NotNull Double weight, @NotNull @DecimalMin("0.01") BigDecimal price) {
+    public WheelDto(Long id, String name, String size, Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.size = size;
