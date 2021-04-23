@@ -26,6 +26,7 @@
     <th>Nazwa</th>
     <th>Rozmiar</th>
     <th>Materiał</th>
+    <th>Producent</th>
     <th>Waga [kg]</th>
     <th>Cena [zł]</th>
     <th>Akcja</th>
@@ -36,6 +37,7 @@
             <td><c:out value="${frame.name}"/></td>
             <td><c:out value="${frame.size}"/></td>
             <td><c:out value="${frame.material}"/></td>
+            <td><c:out value="${frame.producer}"/></td>
             <td><c:out value="${frame.weight}"/> kg</td>
             <td><c:out value="${frame.price}"/> zł</td>
 
