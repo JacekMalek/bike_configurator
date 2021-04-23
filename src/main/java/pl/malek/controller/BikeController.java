@@ -12,6 +12,7 @@ import pl.malek.service.BikeService;
 import pl.malek.service.FrameService;
 import pl.malek.service.WheelService;
 
+import javax.persistence.EntityExistsException;
 import javax.validation.Valid;
 
 import java.util.Collection;
@@ -59,6 +60,12 @@ public class BikeController {
         bikeService.delete(id);
         return "redirect:/bike/all";
     }
+
+@GetMapping("/details/{id}")
+public String getBikeById(@PathVariable Long id, Model model){
+        model.addAttribute("bike", bikeService.get(id).orElseThrow(EntityExistsException::new));
+        return "bike_details";
+}
 
 
     @ModelAttribute("frames")

@@ -22,6 +22,9 @@ public class Frame {
     private String material;
 
     @NotNull
+    private String producer;
+
+    @NotNull
     private Double weight;
 
     @NotNull
@@ -30,10 +33,11 @@ public class Frame {
     @OneToOne
     private Bike bike;
 
-    public Frame(String name, String size, String material, Double weight, BigDecimal price) {
+    public Frame(String name, String size, String material, String producer,Double weight, BigDecimal price) {
         this.name = name;
         this.size = size;
         this.material = material;
+        this.producer = producer;
         this.weight = weight;
         this.price = price;
     }
@@ -87,5 +91,13 @@ public class Frame {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
     }
 }
