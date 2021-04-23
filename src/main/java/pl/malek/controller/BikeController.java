@@ -36,7 +36,7 @@ public class BikeController {
     }
 
     @GetMapping("/all")
-    public String allBikes(Model model){
+    public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
         return "all_bikes";
@@ -59,16 +59,33 @@ public class BikeController {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteBike(@PathVariable Long id){
+    public String deleteBike(@PathVariable Long id) {
         bikeService.delete(id);
         return "redirect:/bike/all";
     }
 
-@GetMapping("/details/{id}")
-public String getBikeById(@PathVariable Long id, Model model){
+
+    @GetMapping("/edit/{id}")
+    public String editBike(@PathVariable Long id, Model model) {
+        model.addAttribute("bike", bikeService.get(id));
+        return "/edit_bike";
+    }
+
+    @PostMapping("/edit")
+    public String postEditBike(@Valid BikeDto bikeDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "edit_bike";
+        }
+        bikeService.update(bikeDto);
+        return "redirect:/bike/all";
+    }
+
+
+    @GetMapping("/details/{id}")
+    public String getBikeById(@PathVariable Long id, Model model) {
         model.addAttribute("bike", bikeService.get(id).orElseThrow(EntityExistsException::new));
         return "bike_details";
-}
+    }
 
 
     @ModelAttribute("frames")
