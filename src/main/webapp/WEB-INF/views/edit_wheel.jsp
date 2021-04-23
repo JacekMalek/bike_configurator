@@ -19,7 +19,7 @@
 <body>
 <h3>Edycja koła:</h3>
 <c:url var="edit_url" value="/wheel/edit"/>
-<form:form method="post" modelAttribute="wheel" action="${edit_url}">
+<form:form method="post" modelAttribute="wheelDto" action="${edit_url}">
 
     <p>
         <form:hidden path="id"/>

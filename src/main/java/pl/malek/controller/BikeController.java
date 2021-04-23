@@ -67,7 +67,7 @@ public class BikeController {
 
     @GetMapping("/edit/{id}")
     public String editBike(@PathVariable Long id, Model model) {
-        model.addAttribute("bike", bikeService.get(id));
+        model.addAttribute("bikeDto", bikeService.get(id));
         return "/edit_bike";
     }
 

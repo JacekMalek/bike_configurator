@@ -21,7 +21,7 @@
 
 
 <c:url var="edit_url" value="/bike/edit"/>
-<form:form method="post" modelAttribute="bike" action="${edit_url}">
+<form:form method="post" modelAttribute="bikeDto" action="${edit_url}">
 
     <p>
         <form:hidden path="id"/>

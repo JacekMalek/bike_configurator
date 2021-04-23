@@ -45,7 +45,7 @@ public final WheelService wheelService;
 
     @GetMapping("/edit/{id}")
     public String editWheel(@PathVariable Long id, Model model){
-        model.addAttribute("wheel", wheelService.get(id));
+        model.addAttribute("wheelDto", wheelService.get(id));
         return "/edit_wheel";
     }
 
