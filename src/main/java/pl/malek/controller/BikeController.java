@@ -19,6 +19,7 @@ import java.util.Collection;
 import java.util.List;
 
 // TODO: 23.04.2021 Sortowanie rowerów 
+// TODO: 23.04.2021 Edycja 
 
 @Controller
 @RequestMapping("/bike")
