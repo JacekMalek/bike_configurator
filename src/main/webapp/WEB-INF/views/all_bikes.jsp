@@ -55,8 +55,8 @@
 <table class="table table-hover table-bordered">
     <thead>
     <th>Nazwa</th>
-    <th>Cena</th>
-    <th>Waga</th>
+    <th>Cena [zł]</th>
+    <th>Waga [kg]</th>
     <th>Szczegóły</th>
     <th>Akcja</th>
     </thead>
@@ -64,8 +64,8 @@
     <c:forEach items="${bikes}" var="bike">
         <tr>
             <td><c:out value="${bike.name}"/></td>
-            <td><c:out value="${bike.price}"/></td>
-            <td><c:out value="${bike.weight}"/></td>
+            <td><c:out value="${bike.price}"/> zł</td>
+            <td><c:out value="${bike.weight}"/> kg</td>
             <td><a href="/bike/details/${bike.id}"><input type="button" value="Pokaż" class="btn btn-primary"/></a></td>
             <td><a href="/bike/edit/${bike.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
                 <button type="button" class="btn btn-danger"><a href="/bike/delete/${bike.id}">

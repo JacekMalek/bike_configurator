@@ -26,8 +26,8 @@
     <th>Nazwa</th>
     <th>Rozmiar</th>
     <th>Materiał</th>
-    <th>Waga</th>
-    <th>Cena</th>
+    <th>Waga [kg]</th>
+    <th>Cena [zł]</th>
     <th>Akcja</th>
     </thead>
     <tbody>
@@ -36,8 +36,8 @@
             <td><c:out value="${frame.name}"/></td>
             <td><c:out value="${frame.size}"/></td>
             <td><c:out value="${frame.material}"/></td>
-            <td><c:out value="${frame.weight}"/></td>
-            <td><c:out value="${frame.price}"/></td>
+            <td><c:out value="${frame.weight}"/> kg</td>
+            <td><c:out value="${frame.price}"/> zł</td>
 
             <td><a href="/frame/edit/${frame.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
                 <button type="button" class="btn btn-danger"><a href="/frame/delete/${frame.id}"><i class="fa fa-trash-o fa-lg"></i> Usuń </a></button></td>
