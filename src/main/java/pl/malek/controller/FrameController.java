@@ -61,4 +61,9 @@ public class FrameController {
         return List.of("Stal", "Aluminium", "Karbon");
     }
 
+    @ModelAttribute("producer")
+    public List<String> producer() {
+        return List.of("Author", "Giant", "Romet", "KTM", "Mongoose", "GT", "Kross", "Merida", "Specialized");
+    }
+
 }

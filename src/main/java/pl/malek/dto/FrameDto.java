@@ -20,17 +20,21 @@ public class FrameDto {
     private String material;
 
     @NotNull
+    private String producer;
+
+    @NotNull
     private Double weight;
 
     @NotNull
     @DecimalMin("0.01")
     private BigDecimal price;
 
-    public FrameDto(Long id, String name, String size, String material, Double weight, BigDecimal price) {
+    public FrameDto(Long id, String name, String size, String material, String producer, Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.size = size;
         this.material = material;
+        this.producer  = producer;
         this.weight = weight;
         this.price = price;
     }
@@ -84,5 +88,13 @@ public class FrameDto {
 
     public void setMaterial(String material) {
         this.material = material;
+    }
+
+    public String getProducer() {
+        return producer;
+    }
+
+    public void setProducer(String producer) {
+        this.producer = producer;
     }
 }

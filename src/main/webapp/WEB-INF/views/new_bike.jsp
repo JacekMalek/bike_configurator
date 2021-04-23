@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Nowy rower</title>
+    <title>Konfigurator rowerowy</title>
     <link href="/style/style.css" rel="stylesheet"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">

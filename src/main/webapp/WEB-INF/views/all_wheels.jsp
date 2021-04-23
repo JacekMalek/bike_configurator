@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="pl_PL">
 <head>
-    <title>Wszystkie ramy</title>
+    <title>Konfigurator rowerowy</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,8 +25,8 @@
     <thead>
     <th>Nazwa</th>
     <th>Rozmiar</th>
-    <th>Waga</th>
-    <th>Cena</th>
+    <th>Waga [kg]</th>
+    <th>Cena [zł]</th>
     <th>Akcja</th>
     </thead>
     <tbody>
@@ -34,8 +34,8 @@
         <tr>
             <td><c:out value="${wheel.name}"/></td>
             <td><c:out value="${wheel.size}"/></td>
-            <td><c:out value="${wheel.weight}"/></td>
-            <td><c:out value="${wheel.price}"/></td>
+            <td><c:out value="${wheel.weight}"/> kg</td>
+            <td><c:out value="${wheel.price}"/> zł</td>
 
             <td><a href="/wheel/edit/${wheel.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
                 <button type="button" class="btn btn-danger"><a href="/wheel/delete/${wheel.id}"><i class="fa fa-trash-o fa-lg"></i> Usuń </a></button></td>

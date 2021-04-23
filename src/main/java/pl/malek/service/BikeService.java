@@ -6,15 +6,8 @@ import org.springframework.stereotype.Service;
 import pl.malek.Calculator.PriceCalculator;
 import pl.malek.Calculator.WeightCalculator;
 import pl.malek.dto.BikeDto;
-import pl.malek.dto.FrameDto;
-import pl.malek.dto.WheelDto;
 import pl.malek.model.Bike;
-
-import pl.malek.model.Frame;
-import pl.malek.model.Wheel;
 import pl.malek.repository.BikeRepository;
-
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -54,7 +47,11 @@ public class BikeService implements MethodInterface<BikeDto> {
 
     @Override
     public Optional<BikeDto> get(Long id) {
-        return Optional.empty();
+        return bikeRepository.findById(id)
+                .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getWeight(), bike.getPrice()))
+                .findFirst();
     }
 
     @Override
