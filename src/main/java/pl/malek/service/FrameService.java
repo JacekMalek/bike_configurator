@@ -29,6 +29,10 @@ public class FrameService implements MethodInterface<FrameDto>{
 
     @Override
     public void add(FrameDto frameDto) {
+        newAndUpdate(frameDto);
+    }
+
+    private void newAndUpdate(FrameDto frameDto) {
         Frame frame = new Frame();
         frame.setName(frameDto.getName());
         frame.setSize(frameDto.getSize());

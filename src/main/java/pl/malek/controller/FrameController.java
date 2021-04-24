@@ -48,7 +48,7 @@ public class FrameController {
 
     @GetMapping("/edit/{id}")
     public String editFrame(@PathVariable Long id, Model model){
-        model.addAttribute("frame", frameService.get(id));
+        model.addAttribute("frameDto", frameService.get(id));
         return "/edit_frame";
     }
 

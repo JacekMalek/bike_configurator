@@ -80,4 +80,12 @@ public class Wheel {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public Bike getBike() {
+        return bike;
+    }
+
+    public void setBike(Bike bike) {
+        this.bike = bike;
+    }
 }

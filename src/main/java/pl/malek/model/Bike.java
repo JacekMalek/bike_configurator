@@ -18,10 +18,10 @@ public class Bike {
     @Size(min = 2, max = 50)
     private String name;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne // (fetch = FetchType.EAGER) Przy relacji OneToOne Eager jest domyślne więc nie trzeba stosować
     private Frame frame;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne // (fetch = FetchType.EAGER) Przy relacji OneToOne Eager jest domyślne więc nie trzeba stosować
     private Wheel wheel;
 
     private Double weight;

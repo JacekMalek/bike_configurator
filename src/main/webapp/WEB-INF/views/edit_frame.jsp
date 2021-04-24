@@ -18,8 +18,9 @@
 
 <body>
 <h3>Edycja rama:</h3>
+
 <c:url var="edit_url" value="/frame/edit"/>
-<form:form method="post" modelAttribute="frame" action="${edit_url}">
+<form:form method="post" modelAttribute="frameDto" action="${edit_url}">
 
     <p>
         <form:hidden path="id"/>
