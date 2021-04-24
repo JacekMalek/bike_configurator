@@ -2,10 +2,8 @@ package pl.malek.service;
 
 import org.springframework.stereotype.Service;
 import pl.malek.dto.WheelDto;
-
 import pl.malek.model.Wheel;
 import pl.malek.repository.WheelRepository;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

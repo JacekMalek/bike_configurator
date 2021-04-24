@@ -18,8 +18,7 @@ import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
-// TODO: 23.04.2021 Sortowanie rowerów 
-// TODO: 23.04.2021 Edycja 
+// TODO: 23.04.2021 Sortowanie rowerów
 
 @Controller
 @RequestMapping("/bike")
@@ -70,6 +69,7 @@ public class BikeController {
         model.addAttribute("bikeDto", bikeService.get(id));
         return "/edit_bike";
     }
+
 
     @PostMapping("/edit")
     public String postEditBike(@Valid BikeDto bikeDto, BindingResult bindingResult) {

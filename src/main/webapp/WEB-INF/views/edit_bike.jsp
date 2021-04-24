@@ -19,7 +19,6 @@
 <body>
 <h3>Edycja roweru:</h3>
 
-
 <c:url var="edit_url" value="/bike/edit"/>
 <form:form method="post" modelAttribute="bikeDto" action="${edit_url}">
 

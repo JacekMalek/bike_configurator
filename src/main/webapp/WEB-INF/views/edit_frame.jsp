@@ -18,6 +18,7 @@
 
 <body>
 <h3>Edycja rama:</h3>
+
 <c:url var="edit_url" value="/frame/edit"/>
 <form:form method="post" modelAttribute="frameDto" action="${edit_url}">
 

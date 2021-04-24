@@ -33,13 +33,15 @@ public class Frame {
     @OneToOne
     private Bike bike;
 
-    public Frame(String name, String size, String material, String producer,Double weight, BigDecimal price) {
+    public Frame(Long id,String name, String size, String material, String producer,Double weight, BigDecimal price, Bike bike) {
+        this.id = id;
         this.name = name;
         this.size = size;
         this.material = material;
         this.producer = producer;
         this.weight = weight;
         this.price = price;
+        this.bike = bike;
     }
 
     public Frame() {
@@ -96,8 +98,15 @@ public class Frame {
     public String getProducer() {
         return producer;
     }
-
     public void setProducer(String producer) {
         this.producer = producer;
+    }
+
+    public Bike getBike() {
+        return bike;
+    }
+
+    public void setBike(Bike bike) {
+        this.bike = bike;
     }
 }

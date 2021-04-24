@@ -1,7 +1,6 @@
 package pl.malek.Calculator;
 
 import org.springframework.stereotype.Component;
-
 import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
 
