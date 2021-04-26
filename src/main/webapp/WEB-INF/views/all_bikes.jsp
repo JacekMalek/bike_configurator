@@ -36,19 +36,35 @@
     </td>
 
     <div class='pull-right'>
-
+        <td>
         <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowa rama</a>
         </button>
         </td>
+
+        <td>
         <button type="button" class="btn btn-success"><a href="/wheel/add"><i class="fa fa-plus"></i> Nowe koła</a>
         </button>
         </td>
+
+        <td>
         <button type="button" class="btn btn-success"><a href="/frame/all"><i class="btn btn-primary"></i> Wszystkie
             ramy</a></button>
         </td>
+
+        <td>
         <button type="button" class="btn btn-success"><a href="/wheel/all"><i class="btn btn-primary"></i> Wszystkie
             koła</a></button>
         </td>
+
+        <td>
+            <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowa rama</a>
+            </button>
+        </td>
+
+
+
+
+
     </div>
 </div>
 <br>
