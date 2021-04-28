@@ -1,4 +1,4 @@
-package pl.malek.Calculator;
+package pl.malek.calculator;
 
 import org.springframework.stereotype.Component;
 import pl.malek.model.Frame;
