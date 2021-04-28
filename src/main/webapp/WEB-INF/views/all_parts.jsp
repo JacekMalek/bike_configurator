@@ -19,19 +19,27 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+<div>
+    <div>
+        <h2>Wszystkie części: </h2>
+    </div>
 
+    <div class='pull-right'>
+        <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+    </div>
+
+    <br>
     <div>
 
+
         <td>
-            <button type="button" class="btn btn-success"><a href="/frame/add"><i class="fa fa-plus"></i> Nowa
-                rama</a>
-            </button>
+            <button type="button" class="btn btn-success"><a href="/frame/all"><i class="btn btn-primary"></i> Wszystkie
+                ramy</a></button>
         </td>
 
         <td>
-            <button type="button" class="btn btn-success"><a href="/wheel/add"><i class="fa fa-plus"></i> Nowe
-                koła</a>
-            </button>
+            <button type="button" class="btn btn-success"><a href="/wheel/all"><i class="btn btn-primary"></i> Wszystkie
+                koła</a></button>
         </td>
 
     </div>
