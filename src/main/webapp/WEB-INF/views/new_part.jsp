@@ -19,7 +19,15 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body>
+<div>
+    <h2>Nowa część: </h2>
+</div>
 
+<div class='pull-right'>
+    <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+</div>
+
+<br>
     <div>
 
         <td>

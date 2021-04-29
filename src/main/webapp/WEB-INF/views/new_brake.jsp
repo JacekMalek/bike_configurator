@@ -27,8 +27,8 @@
     </p>
 
     <p>
-        Rodzaj: <form:select path="material" items="${material}" /><br>
-        <form:errors path="material" cssClass="error"/>
+        Rodzaj: <form:select path="type" items="${type}" /><br>
+        <form:errors path="type" cssClass="error"/>
     </p>
 
     <p>

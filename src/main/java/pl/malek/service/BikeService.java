@@ -28,7 +28,7 @@ public class BikeService implements MethodInterface<BikeDto> {
         return bikeRepository.findAll()
                 .stream()
                 .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
-                        bike.getWheel(), bike.getWeight(), bike.getPrice()))
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
                 .collect(Collectors.toList());
     }
 
@@ -39,8 +39,9 @@ public class BikeService implements MethodInterface<BikeDto> {
         bike.setName(bikeDto.getName());
         bike.setFrame(bikeDto.getFrame());
         bike.setWheel(bikeDto.getWheel());
-        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel()));
-        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel()));
+        bike.setBrake(bikeDto.getBrake());
+        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
+        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
         log.info("Dodano nowy rower");
         bikeRepository.save(bike);
     }
@@ -51,7 +52,7 @@ public class BikeService implements MethodInterface<BikeDto> {
         return bikeRepository.findById(id)
                 .stream()
                 .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
-                        bike.getWheel(), bike.getWeight(), bike.getPrice()))
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
                 .findFirst();
     }
 
@@ -67,8 +68,9 @@ public class BikeService implements MethodInterface<BikeDto> {
         bike.setName(bikeDto.getName());
         bike.setFrame(bikeDto.getFrame());
         bike.setWheel(bikeDto.getWheel());
-        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel()));
-        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel()));
+        bike.setBrake(bikeDto.getBrake());
+        bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
+        bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
         bikeRepository.save(bike);
     }
 

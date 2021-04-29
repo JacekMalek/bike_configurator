@@ -1,6 +1,7 @@
 package pl.malek.dto;
 
 
+import pl.malek.model.Brake;
 import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
 
@@ -23,6 +24,9 @@ public class BikeDto {
     @NotNull
     private Wheel wheel;
 
+    @NotNull
+    private Brake brake;
+
     private Double weight;
 
     private BigDecimal price;
@@ -39,19 +43,21 @@ public class BikeDto {
         this.price = price;
     }
 
-    public BikeDto(Long id, String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public BikeDto(Long id, String name, Frame frame, Wheel wheel, Brake brake, Double weight, BigDecimal price) {
         this.id = id;
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;
+        this.brake= brake;
         this.weight = weight;
         this.price = price;
     }
 
-    public BikeDto(String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public BikeDto(String name, Frame frame, Wheel wheel, Brake brake, Double weight, BigDecimal price) {
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;
+        this.brake = brake;
         this.weight = weight;
         this.price = price;
     }
@@ -88,6 +94,14 @@ public class BikeDto {
 
     public void setWheel(Wheel wheel) {
         this.wheel = wheel;
+    }
+
+    public Brake getBrake() {
+        return brake;
+    }
+
+    public void setBrake(Brake brake) {
+        this.brake = brake;
     }
 
     public Double getWeight() {
