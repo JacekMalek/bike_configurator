@@ -48,7 +48,7 @@
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/frame/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/brake/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
 
 

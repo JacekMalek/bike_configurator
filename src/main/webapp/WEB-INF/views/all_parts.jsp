@@ -42,6 +42,11 @@
                 koła</a></button>
         </td>
 
+        <td>
+            <button type="button" class="btn btn-success"><a href="/brake/all"><i class="btn btn-primary"></i> Wszystkie
+                hamulce</a></button>
+        </td>
+
     </div>
 
 

@@ -42,6 +42,12 @@
             </button>
         </td>
 
+        <td>
+            <button type="button" class="btn btn-success"><a href="/brake/add"><i class="fa fa-plus"></i> Nowe
+                hamulce</a>
+            </button>
+        </td>
+
     </div>
 
 

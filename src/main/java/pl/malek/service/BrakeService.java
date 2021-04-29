@@ -1,5 +1,4 @@
 package pl.malek.service;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +10,7 @@ public class BrakeService implements MethodInterface{
     public List getAll() {
         return null;
     }
+   // TODO Dokończyć BrakeService
 
     @Override
     public void add(Object o) {
