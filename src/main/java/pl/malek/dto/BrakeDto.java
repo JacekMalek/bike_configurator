@@ -2,8 +2,6 @@ package pl.malek.dto;
 
 import pl.malek.model.Bike;
 
-
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
@@ -29,21 +27,17 @@ public class BrakeDto {
     @NotNull
     private Double weight;
 
-    @OneToOne
-    private Bike bike;
 
     public BrakeDto() {
     }
 
-    public BrakeDto(Long id, @NotNull @Size(min = 2, max = 200) String name, @NotNull String type, @NotNull String producer,
-                    @NotNull BigDecimal price, @NotNull Double weight, Bike bike) {
+    public BrakeDto(Long id, String name, String type, String producer, BigDecimal price, Double weight) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.producer = producer;
         this.price = price;
         this.weight = weight;
-        this.bike = bike;
     }
 
     public Long getId() {
@@ -94,11 +88,4 @@ public class BrakeDto {
         this.weight = weight;
     }
 
-    public Bike getBike() {
-        return bike;
-    }
-
-    public void setBike(Bike bike) {
-        this.bike = bike;
-    }
 }

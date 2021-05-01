@@ -20,7 +20,7 @@
 </head>
 <body>
 <div>
-    <h2>Szczegóły roweru:</h2>
+    <h2>Szczegółowa specyfikacja roweru:</h2>
 </div>
 <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -37,10 +37,10 @@
         </div>
         <p class="mb-1">
         <li>Nazwa ramy: <c:out value="${bike.frame.name}"/></li>
-        <li>Waga ramy: <c:out value="${bike.frame.weight}"/> kg</li>
-        <li>Cena ramy: <c:out value="${bike.frame.price}"/> zł</li>
         <li>Materiał ramy: <c:out value="${bike.frame.material}"/></li>
         <li>Rozmiar ramy: <c:out value="${bike.frame.size}"/></li>
+        <li>Waga ramy: <c:out value="${bike.frame.weight}"/> kg</li>
+        <li>Cena ramy: <c:out value="${bike.frame.price}"/> zł</li>
         </p>
     </a>
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -49,11 +49,28 @@
         </div>
         <p class="mb-1">
         <li>Nazwa kół: <c:out value="${bike.wheel.name}"/></li>
+        <li>Rozmiar kół: <c:out value="${bike.wheel.size}"/>'</li>
         <li>Waga kół: <c:out value="${bike.wheel.weight}"/> kg</li>
         <li>Cena kół: <c:out value="${bike.wheel.price}"/> zł</li>
-        <li>Rozmiar kół: <c:out value="${bike.wheel.size}"/>'</li>
+
         </p>
     </a>
+
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">Szczegóły hamulców:</h5>
+        </div>
+        <p class="mb-1">
+        <li>Nazwa hamulców: <c:out value="${bike.brake.name}"/></li>
+        <li>Typ hamulców: <c:out value="${bike.brake.type}"/></li>
+        <li>Producent hamulców: <c:out value="${bike.brake.producer}"/></li>
+        <li>Waga hamulców: <c:out value="${bike.brake.weight}"/> kg</li>
+        <li>Cena hamulców: <c:out value="${bike.brake.price}"/> zł</li>
+
+
+        </p>
+    </a>
+
     <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
         <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">Podsumowanie:</h5>
