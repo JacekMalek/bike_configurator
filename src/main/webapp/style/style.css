@@ -9,3 +9,9 @@ a{
     text-decoration: none;
     color: white;
 }
+
+.image{
+    width: 100px;
+    height: 80px;
+}
+ /*To nie działa*/

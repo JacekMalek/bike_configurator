@@ -27,8 +27,8 @@
     </p>
 
     <p>
-        Rodzaj: <form:select path="material" items="${material}" /><br>
-        <form:errors path="material" cssClass="error"/>
+        Rodzaj: <form:select path="type" items="${type}" /><br>
+        <form:errors path="type" cssClass="error"/>
     </p>
 
     <p>
@@ -48,7 +48,7 @@
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/frame/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/brake/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
 
 

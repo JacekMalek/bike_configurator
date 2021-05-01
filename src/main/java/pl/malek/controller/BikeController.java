@@ -6,9 +6,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.malek.dto.BikeDto;
 
+import pl.malek.dto.BrakeDto;
 import pl.malek.dto.FrameDto;
 import pl.malek.dto.WheelDto;
 import pl.malek.service.BikeService;
+import pl.malek.service.BrakeService;
 import pl.malek.service.FrameService;
 import pl.malek.service.WheelService;
 
@@ -27,11 +29,13 @@ public class BikeController {
     private final BikeService bikeService;
     private final FrameService frameService;
     private final WheelService wheelService;
+    private final BrakeService brakeService;
 
-    public BikeController(BikeService bikeService, FrameService frameService, WheelService wheelService) {
+    public BikeController(BikeService bikeService, FrameService frameService, WheelService wheelService, BrakeService brakeService) {
         this.bikeService = bikeService;
         this.frameService = frameService;
         this.wheelService = wheelService;
+        this.brakeService = brakeService;
     }
 
     @GetMapping("/all")
@@ -93,9 +97,13 @@ public class BikeController {
         return frameService.getAll();
     }
 
-
     @ModelAttribute("wheels")
     public Collection<WheelDto> wheels() {
         return wheelService.getAll();
+    }
+
+    @ModelAttribute("brakes")
+    public Collection<BrakeDto> brakes(){
+        return brakeService.getAll();
     }
 }

@@ -30,14 +30,17 @@
         Rama: <form:select path="frame" items="${frames}" itemLabel="name" itemValue="id"/><br>
         <form:errors path="frame" cssClass="error"/>
     </p>
-<%--Usunłąłem id z path i nadal działa, nie wiem dlaczego--%>
+    <%--Usunłąłem id z path i nadal działa, nie wiem dlaczego--%>
 
     <p>
         Koła: <form:select path="wheel" items="${wheels}" itemLabel="name" itemValue="id"/><br>
         <form:errors path="wheel" cssClass="error"/>
     </p>
 
-
+    <p>
+    Hamulce: <form:select path="brake" items="${brakes}" itemLabel="name" itemValue="id"/>
+        <form:errors path="brake" cssClass="error"/>
+    </p>
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>

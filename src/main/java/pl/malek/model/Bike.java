@@ -24,6 +24,9 @@ public class Bike {
     @OneToOne // (fetch = FetchType.EAGER) Przy relacji OneToOne Eager jest domyślne więc nie trzeba stosować
     private Wheel wheel;
 
+    @OneToOne
+    private Brake brake;
+
     private Double weight;
 
     private BigDecimal price;
@@ -31,10 +34,11 @@ public class Bike {
     public Bike() {
     }
 
-    public Bike( String name, Frame frame, Wheel wheel, Double weight, BigDecimal price) {
+    public Bike( String name, Frame frame, Wheel wheel, Brake brake, Double weight, BigDecimal price) {
         this.name = name;
         this.frame = frame;
         this.wheel = wheel;
+        this.brake = brake;
         this.weight = weight;
         this.price = price;
     }
@@ -69,6 +73,14 @@ public class Bike {
 
     public void setWheel(Wheel wheels) {
         this.wheel = wheels;
+    }
+
+    public Brake getBrake() {
+        return brake;
+    }
+
+    public void setBrake(Brake brake) {
+        this.brake = brake;
     }
 
     public Double getWeight() {
