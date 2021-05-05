@@ -4,26 +4,14 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BikeServiceTest {
+class FrameServiceTest {
 
     @Test
     void getAll() {
     }
 
     @Test
-    void shouldAdd() {
-        //given
-
-
-        //when
-
-
-        //then
-
-
-
-
-
+    void add() {
     }
 
     @Test

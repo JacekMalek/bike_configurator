@@ -1,7 +1,6 @@
 package pl.malek.service;
 import org.springframework.stereotype.Service;
 import pl.malek.dto.BrakeDto;
-import pl.malek.dto.FrameDto;
 import pl.malek.model.Brake;
 import pl.malek.repository.BrakeRepository;
 
