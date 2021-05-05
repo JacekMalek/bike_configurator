@@ -1,6 +1,7 @@
 package pl.malek.service;
 import org.springframework.stereotype.Service;
 import pl.malek.dto.BrakeDto;
+import pl.malek.dto.FrameDto;
 import pl.malek.model.Brake;
 import pl.malek.repository.BrakeRepository;
 
@@ -27,8 +28,6 @@ public class BrakeService implements MethodInterface<BrakeDto>{
 
     }
 
-   // TODO Dokończyć BrakeService
-
     @Override
     public void add(BrakeDto brakeDto) {
         Brake brake  = new Brake();
@@ -42,16 +41,27 @@ public class BrakeService implements MethodInterface<BrakeDto>{
 
     @Override
     public Optional get(Long id) {
-        return Optional.empty();
+        return brakeRepository.findById(id)
+                .stream()
+                .map(brake -> new BrakeDto(brake.getId(), brake.getName(), brake.getType(), brake.getProducer(),
+                         brake.getPrice(), brake.getWeight()))
+                .findFirst();
     }
 
     @Override
     public void delete(Long id) {
-
+    brakeRepository.deleteById(id);
     }
 
     @Override
     public void update(BrakeDto brakeDto) {
-
+        Brake brake = new Brake();
+        brake.setId(brakeDto.getId());
+        brake.setName(brakeDto.getName());
+        brake.setType(brakeDto.getType());
+        brake.setProducer(brakeDto.getProducer());
+        brake.setWeight(brakeDto.getWeight());
+        brake.setPrice(brakeDto.getPrice());
+        brakeRepository.save(brake);
     }
 }

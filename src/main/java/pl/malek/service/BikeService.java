@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 public class BikeService implements MethodInterface<BikeDto> {
 
     private final BikeRepository bikeRepository;
+
     private static final Logger log = LoggerFactory.getLogger(BikeService.class);
 
     public BikeService(BikeRepository bikeRepository) {

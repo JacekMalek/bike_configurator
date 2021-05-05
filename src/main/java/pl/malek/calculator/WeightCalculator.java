@@ -12,6 +12,6 @@ public class WeightCalculator {
         Double frameWeight = frame.getWeight();
         Double wheelWeight  = wheel.getWeight();
         Double brakeWeight  = brake.getWeight();
-        return (frameWeight + wheelWeight + brakeWeight);
+        return frameWeight + wheelWeight + brakeWeight;
     }
 }
