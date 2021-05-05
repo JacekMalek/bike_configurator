@@ -63,7 +63,7 @@ public class BrakeController {
     @GetMapping("/delete/{id}")
     public String deleteBrake(@PathVariable Long id){
         brakeService.delete(id);
-        return "redirect:/barke/all";
+        return "redirect:/brake/all";
     }
 
     @ModelAttribute("type")
