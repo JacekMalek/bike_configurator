@@ -6,7 +6,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import pl.malek.dto.BikeDto;
-import pl.malek.model.Bike;
 import pl.malek.repository.BikeRepository;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,19 +29,12 @@ class BikeServiceTest {
     @Test
     void shouldAdd() {
         //given
-        BikeDto bikeDto = new BikeDto();
-        bikeDto.setId(10L);
-        bikeDto.setName("Rower");
-        bikeDto.setFrame(bikeDto.getFrame());
-        bikeDto.setWheel(bikeDto.getWheel());
-        bikeDto.setBrake(bikeDto.getBrake());
+
 
         //when
-        bikeService.add(bikeDto);
+
 
         //then
-        assertEquals(bikeDto.getId(), 10L);
-        assertEquals(bikeDto.getName(), "Rower");
 
     }
 
