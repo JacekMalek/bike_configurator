@@ -72,6 +72,7 @@ public class BikeService implements MethodInterface<BikeDto> {
         bike.setBrake(bikeDto.getBrake());
         bike.setPrice(PriceCalculator.calculatePrice(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
         bike.setWeight(WeightCalculator.calculateWeight(bikeDto.getFrame(), bikeDto.getWheel(), bikeDto.getBrake()));
+        log.info("Rower został zmieniony");
         bikeRepository.save(bike);
     }
 
