@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class WeightCalculatorTest {
 
     @Test
-    void calculateWeight() {
+    void shouldCalculateWeight() {
         //given
         Frame frame = new Frame();
         frame.setWeight(10.0);

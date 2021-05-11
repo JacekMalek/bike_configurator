@@ -1,14 +1,10 @@
 package pl.malek.calculator;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-
 import pl.malek.model.Brake;
 import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
-import pl.malek.repository.BikeRepository;
-import pl.malek.service.BikeService;
 
 import java.math.BigDecimal;
 
