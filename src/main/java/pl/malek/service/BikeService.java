@@ -76,4 +76,9 @@ public class BikeService implements MethodInterface<BikeDto> {
         bikeRepository.save(bike);
     }
 
+
+    public Long bikeCount(){
+        return bikeRepository.count();
+    }
+
 }

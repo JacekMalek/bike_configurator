@@ -23,6 +23,9 @@
     <div>
         <h2>Nasze rowery:</h2>
     </div>
+    <div class="pull-right">
+        <h5> W Naszej bazie znajduje się już: <c:out value="${count}"/> rowerów </h5>
+    </div>
     <div class="form-group">
         <label for="Select">Sortuj według:</label>
         <select class="form-control" id="Select">
@@ -33,7 +36,6 @@
     </div>
 
     <button type="button" class="btn btn-success"><a href="/bike/add"><i class="fa fa-plus"></i> Nowy rower</a></button>
-    </td>
 
     <div class='pull-right'>
 
@@ -45,6 +47,8 @@
         <td>
             <button type="button" class="btn btn-success"><a href="/all_parts/"><i class="btn btn-primary"></i> Wszystkie części</a></button>
         </td>
+
+
     </div>
 </div>
 <br>

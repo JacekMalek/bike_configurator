@@ -42,6 +42,7 @@ public class BikeController {
     public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
+        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
