@@ -24,7 +24,7 @@
         <h2>Nasze rowery:</h2>
     </div>
     <div class="pull-right">
-        <h5> W Naszej bazie znajduje się już: <c:out value="${count}"/> rowerów </h5>
+        <h5 class="btn btn-outline-secondary"> Złożyliśmy już <c:out value="${count}"/> rowerów </h5>
     </div>
     <div class="form-group">
         <label for="Select">Sortuj według:</label>
