@@ -43,6 +43,19 @@ public class Bike {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Bike{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", frame=" + frame +
+                ", wheel=" + wheel +
+                ", brake=" + brake +
+                ", weight=" + weight +
+                ", price=" + price +
+                '}';
+    }
+
     public Long getId() {
         return id;
     }

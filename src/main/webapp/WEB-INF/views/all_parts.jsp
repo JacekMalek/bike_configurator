@@ -50,10 +50,10 @@
     </div>
 
 
-    <figure class="figure">
-        <img src="https://www.greenbike.pl/images/soil_boost_2_0_630_green_black_matte.png.jpg" class=image class="figure-img img-fluid rounded" alt="PLaceholder">
-        <figcaption class="figure-caption">Rower</figcaption>
-    </figure>
+<%--    <figure class="figure">--%>
+<%--        <img src="https://www.greenbike.pl/images/soil_boost_2_0_630_green_black_matte.png.jpg" class=image class="figure-img img-fluid rounded" alt="PLaceholder">--%>
+<%--        <figcaption class="figure-caption">Rower</figcaption>--%>
+<%--    </figure>--%>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
