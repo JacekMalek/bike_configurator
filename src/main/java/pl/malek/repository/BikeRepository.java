@@ -7,6 +7,4 @@ import pl.malek.model.Bike;
 
 @Repository
 public interface BikeRepository extends JpaRepository<Bike, Long> {
-
-
 }

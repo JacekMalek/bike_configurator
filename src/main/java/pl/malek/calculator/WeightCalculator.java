@@ -8,7 +8,7 @@ import pl.malek.model.Wheel;
 @Component
 public class WeightCalculator {
 
-    public static Double calculateWeight(Frame frame, Wheel wheel, Brake brake) {
+    public Double calculateWeight(Frame frame, Wheel wheel, Brake brake) {
         Double frameWeight = frame.getWeight();
         Double wheelWeight  = wheel.getWeight();
         Double brakeWeight  = brake.getWeight();

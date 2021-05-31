@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.malek.dto.BikeDto;
-
 import pl.malek.dto.BrakeDto;
 import pl.malek.dto.FrameDto;
 import pl.malek.dto.WheelDto;
@@ -13,14 +12,10 @@ import pl.malek.service.BikeService;
 import pl.malek.service.BrakeService;
 import pl.malek.service.FrameService;
 import pl.malek.service.WheelService;
-
 import javax.persistence.EntityExistsException;
 import javax.validation.Valid;
-
 import java.util.Collection;
 import java.util.List;
-
-// TODO: 23.04.2021 Sortowanie rowerów
 
 @Controller
 @RequestMapping("/bike")
@@ -91,6 +86,40 @@ public class BikeController {
         return "bike_details";
     }
 
+    @GetMapping("/allByName")
+    public String getAllBikesByName(Model model){
+        List <BikeDto> bikes = bikeService.allBikeOrderByName();
+        model.addAttribute("bikes", bikes);
+        return "all_bikes";
+    }
+
+    @GetMapping("/allByWeight")
+    public String getAllBikesByWeight(Model model){
+        List <BikeDto> bikes = bikeService.allBikeOrderByWeight();
+        model.addAttribute("bikes", bikes);
+        return "all_bikes";
+    }
+
+    @GetMapping("/allByWeightAscending")
+    public String getAllBikesByWeightAscending(Model model){
+        List <BikeDto> bikes = bikeService.allBikeOrderByWeightAscending();
+        model.addAttribute("bikes", bikes);
+        return "all_bikes";
+    }
+
+    @GetMapping("/allByPrice")
+    public String getAllBikesByPrice(Model model){
+        List <BikeDto> bikes = bikeService.allBikeOrderByPrice();
+        model.addAttribute("bikes", bikes);
+        return "all_bikes";
+    }
+
+    @GetMapping("/allByPriceAscending")
+    public String getAllBikesByPriceAscending(Model model){
+        List <BikeDto> bikes = bikeService.allBikeOrderByPriceAscending();
+        model.addAttribute("bikes", bikes);
+        return "all_bikes";
+    }
 
     @ModelAttribute("frames")
     public Collection<FrameDto> frames() {
@@ -105,5 +134,10 @@ public class BikeController {
     @ModelAttribute("brakes")
     public Collection<BrakeDto> brakes(){
         return brakeService.getAll();
+    }
+
+    @ModelAttribute("count")
+    public Long count(){
+        return bikeService.bikeCount();
     }
 }

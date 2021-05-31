@@ -41,6 +41,12 @@
         <form:errors path="wheel" cssClass="error"/>
     </p>
 
+    <p>
+        Koła: <form:select path="brake" items="${brakes}" itemLabel="name" itemValue="id"/><br>
+        <form:errors path="brake" cssClass="error"/>
+    </p>
+
+
 
 
     <p>

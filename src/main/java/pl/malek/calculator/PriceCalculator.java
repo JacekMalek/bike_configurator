@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Component
 public class PriceCalculator {
 
-    public static BigDecimal calculatePrice(Frame frame, Wheel wheel, Brake brake) {
+    public BigDecimal calculatePrice(Frame frame, Wheel wheel, Brake brake) {
         BigDecimal framePrice = frame.getPrice();
         BigDecimal wheelPrice = wheel.getPrice();
         BigDecimal brakePrice = brake.getPrice();
