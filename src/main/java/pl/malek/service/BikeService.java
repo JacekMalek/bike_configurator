@@ -98,7 +98,7 @@ public class BikeService implements MethodInterface<BikeDto> {
 
     public List <BikeDto> allBikeOrderByWeight(){
         return bikeRepository.findAll(Sort.by("weight").descending())
-                               .stream()
+                .stream()
                 .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
                         bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
                 .collect(Collectors.toList());

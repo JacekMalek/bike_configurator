@@ -17,8 +17,6 @@ import javax.validation.Valid;
 import java.util.Collection;
 import java.util.List;
 
-// TODO: 23.04.2021 Sortowanie rowerów
-
 @Controller
 @RequestMapping("/bike")
 public class BikeController {
@@ -39,7 +37,6 @@ public class BikeController {
     public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -93,7 +90,6 @@ public class BikeController {
     public String getAllBikesByName(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByName();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -101,7 +97,6 @@ public class BikeController {
     public String getAllBikesByWeight(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByWeight();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -109,7 +104,6 @@ public class BikeController {
     public String getAllBikesByWeightAscending(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByWeightAscending();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -117,7 +111,6 @@ public class BikeController {
     public String getAllBikesByPrice(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByPrice();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -125,7 +118,6 @@ public class BikeController {
     public String getAllBikesByPriceAscending(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByPriceAscending();
         model.addAttribute("bikes", bikes);
-        model.addAttribute("count", bikeService.bikeCount());
         return "all_bikes";
     }
 
@@ -142,5 +134,10 @@ public class BikeController {
     @ModelAttribute("brakes")
     public Collection<BrakeDto> brakes(){
         return brakeService.getAll();
+    }
+
+    @ModelAttribute("count")
+    public Long count(){
+        return bikeService.bikeCount();
     }
 }
