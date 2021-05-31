@@ -2,6 +2,7 @@ package pl.malek.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pl.malek.calculator.PriceCalculator;
 import pl.malek.calculator.WeightCalculator;
@@ -84,6 +85,47 @@ public class BikeService implements MethodInterface<BikeDto> {
 
     public Long bikeCount() {
         return bikeRepository.count();
+    }
+
+    public List <BikeDto> allBikeOrderByName(){
+        return bikeRepository.findAll(Sort.by("name"))
+                .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+
+    public List <BikeDto> allBikeOrderByWeight(){
+        return bikeRepository.findAll(Sort.by("weight").descending())
+                               .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+    public List <BikeDto> allBikeOrderByWeightAscending(){
+        return bikeRepository.findAll(Sort.by("weight").ascending())
+                .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+    public List <BikeDto> allBikeOrderByPrice(){
+        return bikeRepository.findAll(Sort.by("price").descending())
+                .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
+                .collect(Collectors.toList());
+    }
+
+    public List <BikeDto> allBikeOrderByPriceAscending(){
+        return bikeRepository.findAll(Sort.by("price").ascending())
+                .stream()
+                .map(bike -> new BikeDto(bike.getId(), bike.getName(), bike.getFrame(),
+                        bike.getWheel(), bike.getBrake(), bike.getWeight(), bike.getPrice()))
+                .collect(Collectors.toList());
     }
 
 }

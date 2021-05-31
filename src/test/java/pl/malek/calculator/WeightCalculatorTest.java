@@ -6,8 +6,6 @@ import pl.malek.model.Brake;
 import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class WeightCalculatorTest {
 
     @Test
@@ -28,5 +26,4 @@ class WeightCalculatorTest {
         Assertions.assertThat(result).isEqualTo(18.5);
 
     }
-
 }
