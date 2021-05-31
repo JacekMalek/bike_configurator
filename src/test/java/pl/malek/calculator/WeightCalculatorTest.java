@@ -19,9 +19,10 @@ class WeightCalculatorTest {
         wheel.setWeight(5.0);
         Brake brake = new Brake();
         brake.setWeight(3.5);
+        WeightCalculator weightCalculator = new WeightCalculator();
 
         //when
-        Double result = WeightCalculator.calculateWeight(frame, wheel, brake);
+        Double result = weightCalculator.calculateWeight(frame, wheel, brake);
 
         //then
         Assertions.assertThat(result).isEqualTo(18.5);
