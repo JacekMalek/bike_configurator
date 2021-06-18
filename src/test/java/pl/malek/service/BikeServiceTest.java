@@ -19,8 +19,6 @@ class BikeServiceTest {
     @InjectMocks
     private BikeService bikeService;
 
-//TODO Sprawdzic jak zrobić testy
-
 
     @Test
     void getAll() {
@@ -38,7 +36,6 @@ class BikeServiceTest {
 
     }
 
-    //TODO Póki co nie działa, do zrobienia
 
     @Test
     void get() {
