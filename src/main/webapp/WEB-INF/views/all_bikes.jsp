@@ -24,13 +24,13 @@
         <h2>Nasze rowery:</h2>
     </div>
     <div class="pull-right">
-        <h5 class="btn btn-outline-secondary"> Złożyliśmy już <c:out value="${count}"/> rowerów </h5>
+        <h5 class="btn btn-outline-secondary"> W Naszej bazie jest już <c:out value="${count}"/> rowerów </h5>
     </div>
     <div class="form-group">
         <br>
         <div>Sortuj według:</div>
         <select class="form-control" id="Select" onchange="location = this.value;">
-            <option>Wybierz sposób sortowania</option>
+            <option>Wybierz sposób sortowania </option>
             <option value="/bike/allByName">Po nazwie</option>
             <option value="/bike/allByPriceAscending">Po cenie od najniższej</option>
             <option value="/bike/allByPrice">Po cenie od najwyższej</option>
