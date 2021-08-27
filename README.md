@@ -20,10 +20,10 @@ If you have the project hosted somewhere, include the link here. -->
 - Java
 - Spring
 - Hibernate
-- Js
 - Spring Boot
 - MySql
 - Bootstrap
+
 
 
 
