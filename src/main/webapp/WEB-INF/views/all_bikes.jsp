@@ -52,6 +52,10 @@
             <button type="button" class="btn btn-success"><a href="/all_parts/"><i class="btn btn-primary"></i> Wszystkie części</a></button>
         </td>
 
+        <td>
+            <a href="/bike/pdfRaport"><input type="button" value="Zestawienie rowerów" class="btn btn-primary"/></a>
+        </td>
+
 
     </div>
 </div>
@@ -70,9 +74,7 @@
             <td><c:out value="${bike.name}"/></td>
             <td><c:out value="${bike.price}"/> zł</td>
             <td><c:out value="${bike.weight}"/> kg</td>
-            <td><a href="/bike/details/${bike.id}"><input type="button" value="Pokaż szczegóły" class="btn btn-primary"/></a>
-                <a href="/bike/raport/${bike.id}"><input type="button" value="Raport PDF" class="btn btn-primary"/></a>
-            </td>
+            <td><a href="/bike/details/${bike.id}"><input type="button" value="Pokaż szczegóły" class="btn btn-primary"/></a></td>
             <td><a href="/bike/edit/${bike.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
                 <button type="button" class="btn btn-danger"><a href="/bike/delete/${bike.id}">
                     <i class="fa fa-trash-o fa-lg"></i> Usuń </a></button>

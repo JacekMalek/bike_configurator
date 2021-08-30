@@ -82,7 +82,7 @@
     </a>
 </div>
 <br>
-
+<a href="/bike/pdfRaportSelectedBike/${bike.id}"><input type="button" value="Raport PDF" class="btn btn-primary"/></a>
 <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
