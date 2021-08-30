@@ -141,7 +141,7 @@ public class BikeController {
 
         List<BikeDto> bikeList = bikeService.allBikeOrderByName();
 
-        PdfCreator exporter = new PdfCreator(bikeList);
+        PdfCreator exporter = new PdfCreator(bikeList, bikeService);
 
         exporter.export(response);
     }

@@ -160,17 +160,17 @@ public class PdfCreatorSelectedBike {
 
         PdfPTable frameTable = new PdfPTable(5);
         frameTable.setWidthPercentage(100f);
-        frameTable.setWidths(new float[]{1.5f, 3.0f, 3.0f, 1.5f, 1.5f});
+        frameTable.setWidths(new float[]{3.5f, 3.0f, 3.0f, 1.5f, 1.5f});
         frameTable.setSpacingBefore(10);
 
         PdfPTable wheelsTable = new PdfPTable(4);
         wheelsTable.setWidthPercentage(100f);
-        wheelsTable.setWidths(new float[]{1.5f, 3.0f, 1.5f, 1.5f});
+        wheelsTable.setWidths(new float[]{3.5f, 3.0f, 1.5f, 1.5f});
         wheelsTable.setSpacingBefore(10);
 
         PdfPTable brakesTable = new PdfPTable(5);
         brakesTable.setWidthPercentage(100f);
-        brakesTable.setWidths(new float[]{1.5f, 3.0f, 3.0f, 1.5f, 1.5f});
+        brakesTable.setWidths(new float[]{3.5f, 3.0f, 3.0f, 1.5f, 1.5f});
         brakesTable.setSpacingBefore(10);
 
         PdfPTable summaryTable = new PdfPTable(2);
@@ -215,6 +215,4 @@ public class PdfCreatorSelectedBike {
 
         document.close();
     }
-
-
 }
