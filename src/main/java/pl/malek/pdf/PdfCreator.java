@@ -5,18 +5,23 @@ import com.lowagie.text.Font;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import org.springframework.stereotype.Component;
 import pl.malek.dto.BikeDto;
+import pl.malek.service.BikeService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
+@Component
 public class PdfCreator {
     private final List<BikeDto> bikeList;
+    private final BikeService bikeService;
 
-    public PdfCreator(List<BikeDto> bikeList) {
+    public PdfCreator(List<BikeDto> bikeList, BikeService bikeService) {
         this.bikeList = bikeList;
+        this.bikeService = bikeService;
     }
 
     private void writeTableHeader(PdfPTable table) {
@@ -85,6 +90,11 @@ public class PdfCreator {
         writeTableData(table);
 
         document.add(table);
+
+        Paragraph p1 = new Paragraph("Liczba rowerów w bazie: " + bikeService.bikeCount(), font);
+        p1.setAlignment(Paragraph.ALIGN_LEFT);
+
+        document.add(p1);
 
         document.close();
     }
