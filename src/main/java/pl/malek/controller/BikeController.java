@@ -1,5 +1,6 @@
 package pl.malek.controller;
 
+import com.lowagie.text.DocumentException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,13 +9,20 @@ import pl.malek.dto.BikeDto;
 import pl.malek.dto.BrakeDto;
 import pl.malek.dto.FrameDto;
 import pl.malek.dto.WheelDto;
+import pl.malek.pdf.PdfCreator;
+import pl.malek.pdf.PdfCreatorSelectedBike;
 import pl.malek.service.BikeService;
 import pl.malek.service.BrakeService;
 import pl.malek.service.FrameService;
 import pl.malek.service.WheelService;
 import javax.persistence.EntityExistsException;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -120,6 +128,42 @@ public class BikeController {
         model.addAttribute("bikes", bikes);
         return "all_bikes";
     }
+
+    @GetMapping("/pdfRaport")
+    public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/pdf");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=bike_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+
+        List<BikeDto> bikeList = bikeService.allBikeOrderByName();
+
+        PdfCreator exporter = new PdfCreator(bikeList);
+
+        exporter.export(response);
+    }
+
+    @GetMapping("/pdfRaportSelectedBike/{id}")
+    public void exportToPdfSelectedBike(@PathVariable Long id, HttpServletResponse response) throws DocumentException, IOException {
+        response.setContentType("application/pdf");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=bike_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+
+        BikeDto selectedBike = bikeService.get(id).orElseThrow(EntityExistsException::new);
+
+        PdfCreatorSelectedBike exporter = new PdfCreatorSelectedBike(selectedBike);
+
+        exporter.export(response);
+    }
+
+
 
     @ModelAttribute("frames")
     public Collection<FrameDto> frames() {
