@@ -141,7 +141,7 @@ public class BikeController {
 
         List<BikeDto> bikeList = bikeService.allBikeOrderByName();
 
-        PdfCreator exporter = new PdfCreator(bikeList);
+        PdfCreator exporter = new PdfCreator(bikeList, bikeService);
 
         exporter.export(response);
     }
@@ -156,14 +156,12 @@ public class BikeController {
         String headerValue = "attachment; filename=bike_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
 
-        BikeDto selectedBike = bikeService.get(id).orElseThrow(EntityExistsException::new);
+        BikeDto bikeDto = bikeService.get(id).orElseThrow(EntityExistsException::new);
 
-        PdfCreatorSelectedBike exporter = new PdfCreatorSelectedBike(selectedBike);
+        PdfCreatorSelectedBike exporter = new PdfCreatorSelectedBike(bikeDto);
 
         exporter.export(response);
     }
-
-
 
     @ModelAttribute("frames")
     public Collection<FrameDto> frames() {

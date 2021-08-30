@@ -2,21 +2,24 @@ package pl.malek.pdf;
 
 import com.lowagie.text.*;
 import com.lowagie.text.Font;
-import com.lowagie.text.pdf.PdfPCell;
-import com.lowagie.text.pdf.PdfPTable;
-import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.pdf.*;
+import org.springframework.stereotype.Component;
 import pl.malek.dto.BikeDto;
+import pl.malek.service.BikeService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 import java.util.List;
 
+@Component
 public class PdfCreator {
     private final List<BikeDto> bikeList;
+    private final BikeService bikeService;
 
-    public PdfCreator(List<BikeDto> bikeList) {
+    public PdfCreator(List<BikeDto> bikeList, BikeService bikeService) {
         this.bikeList = bikeList;
+        this.bikeService = bikeService;
     }
 
     private void writeTableHeader(PdfPTable table) {
@@ -67,6 +70,7 @@ public class PdfCreator {
         PdfWriter.getInstance(document, response.getOutputStream());
 
         document.open();
+        document.addAuthor("Serwis rowerowy");
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
         font.setSize(18);
         font.setColor(Color.BLUE);
@@ -85,6 +89,13 @@ public class PdfCreator {
         writeTableData(table);
 
         document.add(table);
+
+        PdfString pdfString = new PdfString(String.valueOf(bikeService.bikeCount()));
+        Paragraph p1 = new Paragraph("Liczba rowerów w bazie: " + pdfString, font);
+        p1.setAlignment(Paragraph.ALIGN_LEFT);
+
+
+        document.add(p1);
 
         document.close();
     }

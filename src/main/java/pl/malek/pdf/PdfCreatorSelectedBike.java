@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.*;
 import java.io.IOException;
 
+
 public class PdfCreatorSelectedBike {
 
     private final BikeDto selectedBike;
@@ -145,6 +146,7 @@ public class PdfCreatorSelectedBike {
         PdfWriter.getInstance(document, response.getOutputStream());
 
         document.open();
+        document.addAuthor("Serwis rowerowy");
         Font font = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
         font.setSize(18);
         font.setColor(Color.BLUE);
@@ -153,29 +155,24 @@ public class PdfCreatorSelectedBike {
         p.setAlignment(Paragraph.ALIGN_CENTER);
         document.add(p);
 
-
-        Paragraph p1 = new Paragraph("Rama", font);
-        p.setAlignment(Paragraph.ALIGN_LEFT);
-        document.add(p1);
-
         PdfPTable frameTable = new PdfPTable(5);
         frameTable.setWidthPercentage(100f);
-        frameTable.setWidths(new float[]{1.5f, 3.0f, 3.0f, 1.5f, 1.5f});
+        frameTable.setWidths(new float[]{3.5f, 3.0f, 3.0f, 1.5f, 1.5f});
         frameTable.setSpacingBefore(10);
 
         PdfPTable wheelsTable = new PdfPTable(4);
         wheelsTable.setWidthPercentage(100f);
-        wheelsTable.setWidths(new float[]{1.5f, 3.0f, 1.5f, 1.5f});
+        wheelsTable.setWidths(new float[]{3.5f, 2.0f, 1.5f, 1.5f});
         wheelsTable.setSpacingBefore(10);
 
         PdfPTable brakesTable = new PdfPTable(5);
         brakesTable.setWidthPercentage(100f);
-        brakesTable.setWidths(new float[]{1.5f, 3.0f, 3.0f, 1.5f, 1.5f});
+        brakesTable.setWidths(new float[]{3.5f, 3.5f, 3.0f, 1.5f, 1.5f});
         brakesTable.setSpacingBefore(10);
 
         PdfPTable summaryTable = new PdfPTable(2);
         summaryTable.setWidthPercentage(100f);
-        summaryTable.setWidths(new float[]{6.0f, 6.0f});
+        summaryTable.setWidths(new float[]{3.0f, 3.0f});
         summaryTable.setSpacingBefore(10);
 
 
@@ -192,6 +189,9 @@ public class PdfCreatorSelectedBike {
         writeTableSummaryData(summaryTable, selectedBike);
 
 
+        Paragraph p1 = new Paragraph("Rama", font);
+        p.setAlignment(Paragraph.ALIGN_LEFT);
+        document.add(p1);
 
         document.add(frameTable);
 
@@ -206,7 +206,7 @@ public class PdfCreatorSelectedBike {
         document.add(p3);
 
         document.add(brakesTable);
-
+        document.bottomMargin();
         Paragraph p4 = new Paragraph("Podsumowanie", font);
         p4.setAlignment(Paragraph.ALIGN_CENTER);
         document.add(p4);
