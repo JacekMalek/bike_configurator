@@ -25,7 +25,7 @@
     </div>
 
     <div class='pull-right'>
-        <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </div>
 
     <br>
