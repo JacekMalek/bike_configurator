@@ -46,7 +46,7 @@
 
 
 </table>
-<a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+<a href="/"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

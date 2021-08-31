@@ -26,7 +26,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@RequestMapping("/bike")
+@RequestMapping("/")
 public class BikeController {
 
     private final BikeService bikeService;
@@ -41,7 +41,7 @@ public class BikeController {
         this.brakeService = brakeService;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
@@ -61,13 +61,13 @@ public class BikeController {
             return "new_bike";
         }
         bikeService.add(bikeDto);
-        return "redirect:/bike/all";
+        return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
     public String deleteBike(@PathVariable Long id) {
         bikeService.delete(id);
-        return "redirect:/bike/all";
+        return "redirect:/";
     }
 
 
@@ -84,7 +84,7 @@ public class BikeController {
             return "edit_bike";
         }
         bikeService.update(bikeDto);
-        return "redirect:/bike/all";
+        return "redirect:/";
     }
 
 

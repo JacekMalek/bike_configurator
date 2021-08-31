@@ -31,15 +31,15 @@
         <div>Sortuj według:</div>
         <select class="form-control" id="Select" onchange="location = this.value;">
             <option>Wybierz sposób sortowania </option>
-            <option value="/bike/allByName">Po nazwie</option>
-            <option value="/bike/allByPriceAscending">Po cenie od najniższej</option>
-            <option value="/bike/allByPrice">Po cenie od najwyższej</option>
-            <option value="/bike/allByWeightAscending">Po wadze od najniższej</option>
-            <option value="/bike/allByWeight">Po wadze od najwyższej</option>
+            <option value="/allByName">Po nazwie</option>
+            <option value="/allByPriceAscending">Po cenie od najniższej</option>
+            <option value="/allByPrice">Po cenie od najwyższej</option>
+            <option value="/allByWeightAscending">Po wadze od najniższej</option>
+            <option value="/allByWeight">Po wadze od najwyższej</option>
         </select>
     </div>
 
-    <button type="button" class="btn btn-success"><a href="/bike/add"><i class="fa fa-plus"></i> Nowy rower</a></button>
+    <button type="button" class="btn btn-success"><a href="/add"><i class="fa fa-plus"></i> Nowy rower</a></button>
 
     <div class='pull-right'>
 
@@ -53,7 +53,7 @@
         </td>
 
         <td>
-            <a href="/bike/pdfRaport"><input type="button" value="Zestawienie rowerów" class="btn btn-primary"/></a>
+            <a href="/pdfRaport"><input type="button" value="Zestawienie rowerów" class="btn btn-primary"/></a>
         </td>
 
 
@@ -74,9 +74,9 @@
             <td><c:out value="${bike.name}"/></td>
             <td><c:out value="${bike.price}"/> zł</td>
             <td><c:out value="${bike.weight}"/> kg</td>
-            <td><a href="/bike/details/${bike.id}"><input type="button" value="Pokaż szczegóły" class="btn btn-primary"/></a></td>
-            <td><a href="/bike/edit/${bike.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
-                <button type="button" class="btn btn-danger"><a href="/bike/delete/${bike.id}">
+            <td><a href="/details/${bike.id}"><input type="button" value="Pokaż szczegóły" class="btn btn-primary"/></a></td>
+            <td><a href="/edit/${bike.id}"><input type="button" value="Edytuj" class="btn btn-secondary"/></a>
+                <button type="button" class="btn btn-danger"><a href="/delete/${bike.id}">
                     <i class="fa fa-trash-o fa-lg"></i> Usuń </a></button>
             </td>
         </tr>

@@ -19,7 +19,7 @@
 <body>
 <h3>Edycja roweru:</h3>
 
-<c:url var="edit_url" value="/bike/edit"/>
+<c:url var="edit_url" value="/edit"/>
 <form:form method="post" modelAttribute="bikeDto" action="${edit_url}">
 
     <p>
@@ -51,7 +51,7 @@
 
     <p>
         <button class="btn btn-success" type="submit"><i class="fa fa-floppy-o fa-lg"></i> Zapisz</button>
-        <a href="/bike/all"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
+        <a href="/"><input type="button" value="Powrót" class="btn btn-secondary"/></a>
     </p>
 
 </form:form>
