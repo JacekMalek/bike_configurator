@@ -41,11 +41,11 @@ public class BikeController {
         this.brakeService = brakeService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/index")
     public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/add")
@@ -98,35 +98,35 @@ public class BikeController {
     public String getAllBikesByName(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByName();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/allByWeight")
     public String getAllBikesByWeight(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByWeight();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/allByWeightAscending")
     public String getAllBikesByWeightAscending(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByWeightAscending();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/allByPrice")
     public String getAllBikesByPrice(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByPrice();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/allByPriceAscending")
     public String getAllBikesByPriceAscending(Model model){
         List <BikeDto> bikes = bikeService.allBikeOrderByPriceAscending();
         model.addAttribute("bikes", bikes);
-        return "all_bikes";
+        return "index";
     }
 
     @GetMapping("/pdfRaport")
