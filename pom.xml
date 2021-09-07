@@ -17,7 +17,7 @@
 
     <properties>
         <java.version>16</java.version>
-        <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.25</mysql-connector-java.version>
     </properties>
 
     <dependencies>
