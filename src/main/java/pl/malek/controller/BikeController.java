@@ -41,7 +41,7 @@ public class BikeController {
         this.brakeService = brakeService;
     }
 
-    @GetMapping("/index")
+    @GetMapping("/")
     public String allBikes(Model model) {
         List<BikeDto> bikes = bikeService.getAll();
         model.addAttribute("bikes", bikes);
@@ -95,59 +95,59 @@ public class BikeController {
     }
 
     @GetMapping("/allByName")
-    public String getAllBikesByName(Model model){
-        List <BikeDto> bikes = bikeService.allBikeOrderByName();
+    public String getAllBikesByName(Model model) {
+        List<BikeDto> bikes = bikeService.allBikeOrderByName();
         model.addAttribute("bikes", bikes);
         return "index";
     }
 
     @GetMapping("/allByWeight")
-    public String getAllBikesByWeight(Model model){
-        List <BikeDto> bikes = bikeService.allBikeOrderByWeight();
+    public String getAllBikesByWeight(Model model) {
+        List<BikeDto> bikes = bikeService.allBikeOrderByWeight();
         model.addAttribute("bikes", bikes);
         return "index";
     }
 
     @GetMapping("/allByWeightAscending")
-    public String getAllBikesByWeightAscending(Model model){
-        List <BikeDto> bikes = bikeService.allBikeOrderByWeightAscending();
+    public String getAllBikesByWeightAscending(Model model) {
+        List<BikeDto> bikes = bikeService.allBikeOrderByWeightAscending();
         model.addAttribute("bikes", bikes);
         return "index";
     }
 
     @GetMapping("/allByPrice")
-    public String getAllBikesByPrice(Model model){
-        List <BikeDto> bikes = bikeService.allBikeOrderByPrice();
+    public String getAllBikesByPrice(Model model) {
+        List<BikeDto> bikes = bikeService.allBikeOrderByPrice();
         model.addAttribute("bikes", bikes);
         return "index";
     }
 
     @GetMapping("/allByPriceAscending")
-    public String getAllBikesByPriceAscending(Model model){
-        List <BikeDto> bikes = bikeService.allBikeOrderByPriceAscending();
+    public String getAllBikesByPriceAscending(Model model) {
+        List<BikeDto> bikes = bikeService.allBikeOrderByPriceAscending();
         model.addAttribute("bikes", bikes);
         return "index";
     }
 
     @GetMapping("/pdfRaport")
     public void exportToPDF(HttpServletResponse response) throws DocumentException, IOException {
-        response.setContentType("application/pdf");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
-        String currentDateTime = dateFormatter.format(new Date());
-
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=bike_" + currentDateTime + ".pdf";
-        response.setHeader(headerKey, headerValue);
+        dateAndTimeForPdf(response);
 
         List<BikeDto> bikeList = bikeService.allBikeOrderByName();
-
         PdfCreator exporter = new PdfCreator(bikeList, bikeService);
-
         exporter.export(response);
     }
 
     @GetMapping("/pdfRaportSelectedBike/{id}")
     public void exportToPdfSelectedBike(@PathVariable Long id, HttpServletResponse response) throws DocumentException, IOException {
+        dateAndTimeForPdf(response);
+
+        BikeDto selectedBike = bikeService.get(id).orElseThrow(EntityExistsException::new);
+        PdfCreatorSelectedBike exporter = new PdfCreatorSelectedBike(selectedBike);
+        exporter.export(response);
+    }
+
+    private void dateAndTimeForPdf(HttpServletResponse response) {
         response.setContentType("application/pdf");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -155,14 +155,7 @@ public class BikeController {
         String headerKey = "Content-Disposition";
         String headerValue = "attachment; filename=bike_" + currentDateTime + ".pdf";
         response.setHeader(headerKey, headerValue);
-
-        BikeDto selectedBike = bikeService.get(id).orElseThrow(EntityExistsException::new);
-
-        PdfCreatorSelectedBike exporter = new PdfCreatorSelectedBike(selectedBike);
-
-        exporter.export(response);
     }
-
 
 
     @ModelAttribute("frames")
@@ -176,12 +169,12 @@ public class BikeController {
     }
 
     @ModelAttribute("brakes")
-    public Collection<BrakeDto> brakes(){
+    public Collection<BrakeDto> brakes() {
         return brakeService.getAll();
     }
 
     @ModelAttribute("count")
-    public Long count(){
+    public Long count() {
         return bikeService.bikeCount();
     }
 }
