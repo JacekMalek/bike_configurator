@@ -48,10 +48,10 @@ public class PdfCreator {
         cell.setPhrase(new Phrase("Hamulce", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Waga", font));
+        cell.setPhrase(new Phrase("Waga [kg]", font));
         table.addCell(cell);
 
-        cell.setPhrase(new Phrase("Cena", font));
+        cell.setPhrase(new Phrase("Cena [zł]", font));
         table.addCell(cell);
     }
 
