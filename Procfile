@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/bike_configurator-0.0.1-SNAPSHOT.jar --port $PORT target/*.war
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/bike_configurator-0.0.1-SNAPSHOT.jar
