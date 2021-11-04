@@ -32,7 +32,6 @@ import java.util.List;
 @RequestMapping("/")
 public class BikeController {
 
-
     private final BikeService bikeService;
     private final FrameService frameService;
     private final WheelService wheelService;
