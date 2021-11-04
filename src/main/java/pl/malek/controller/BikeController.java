@@ -1,6 +1,8 @@
 package pl.malek.controller;
 
 import com.lowagie.text.DocumentException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,9 +27,11 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/")
 public class BikeController {
+
 
     private final BikeService bikeService;
     private final FrameService frameService;
@@ -47,6 +51,7 @@ public class BikeController {
         model.addAttribute("bikes", bikes);
         return "index";
     }
+
 
     @GetMapping("/add")
     public String addNewBike(Model model) {
