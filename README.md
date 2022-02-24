@@ -39,6 +39,7 @@ List the ready features here:
 ![Bike0](./images/Bike0.png)
 ![Bike1](./images/Bike1.png)
 ![Bike2](./images/Bike2.png)
+![Bike3](./images/Bike3.png)
 
 
 
