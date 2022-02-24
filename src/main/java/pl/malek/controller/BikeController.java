@@ -54,7 +54,6 @@ public class BikeController {
         return "new_bike";
     }
 
-
     @PostMapping("/add")
     public String postAddBike(@ModelAttribute("bikeDto") @Valid BikeDto bikeDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
