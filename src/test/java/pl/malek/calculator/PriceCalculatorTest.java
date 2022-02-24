@@ -7,7 +7,6 @@ import pl.malek.model.Frame;
 import pl.malek.model.Wheel;
 import java.math.BigDecimal;
 
-
 class PriceCalculatorTest {
 
     @Test
